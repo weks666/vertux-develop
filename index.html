@@ -1,758 +1,455 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vertux Develop - приложение под ваш бизнес за 14 дней</title>
-<meta name="description" content="Воркспейсы, CRM под процесс, клиентские порталы, Telegram-боты и AI-ассистенты для малого бизнеса. Уровень заказной разработки за деньги малого бизнеса.">
-<meta name="theme-color" content="#0A0A12">
-<meta property="og:title" content="Vertux Develop - приложения под процессы бизнеса">
-<meta property="og:description" content="Воркспейсы, клиентские порталы, Telegram-боты и AI-модули без лишней коробочной функциональности.">
-<meta property="og:type" content="website">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/fonts/fonts.css">
-<style>
-:root{
-  --bg:#0A0A12; --bg2:#07070D; --panel:#12121C; --panel2:#181826; --panel3:#1F1F30;
-  --line:rgba(124,92,255,.14); --line2:rgba(124,92,255,.30); --hair:rgba(255,255,255,.07);
-  --text:#F2F1F7; --mut:#A7A4B8; --mut2:#77748C;
-  --ac:#7C5CFF; --ac2:#C2B2FF; --ok:#2BD158; --warn:#FEBC2E;
-  --display:'Unbounded',system-ui,sans-serif; --body:'Manrope',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
-  --r:14px; --rs:9px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:72px 72px;opacity:.22;mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 75%)}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.05;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
-a{color:inherit;text-decoration:none}
-img{max-width:100%}
-.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:1;min-width:0}
-.mono{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut2)}
-.mono b{color:var(--ac2);font-weight:500}
-.hairline{border:0;border-top:1px solid var(--hair)}
-h1,h2,h3{font-family:var(--display);line-height:1.15;font-weight:700}
-h2{font-size:clamp(26px,4vw,42px);letter-spacing:-.01em}
-.sec{padding:96px 0;position:relative}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:44px;flex-wrap:wrap}
-.ghost{position:absolute;right:-10px;top:26px;font-family:var(--display);font-weight:800;font-size:clamp(90px,16vw,200px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(124,92,255,.10);pointer-events:none;user-select:none;z-index:0}
-.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;padding:15px 26px;border-radius:var(--rs);border:1px solid var(--line2);background:var(--panel);cursor:pointer;font-family:var(--body);color:var(--text);transition:.2s;position:relative}
-.btn:hover{transform:translateY(-2px);border-color:var(--ac)}
-.btn.pri{background:linear-gradient(135deg,var(--ac),#5A3FD6);border:none;color:#fff;box-shadow:0 8px 30px rgba(124,92,255,.30)}
-.btn.pri:hover{box-shadow:0 12px 40px rgba(124,92,255,.45)}
-.corner{position:relative}
-.corner::before,.corner::after{content:"";position:absolute;width:14px;height:14px;border:1px solid var(--line2);transition:.25s}
-.corner::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
-.corner::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
-.corner:hover::before,.corner:hover::after{width:26px;height:26px;border-color:var(--ac)}
-/* reveal */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
-.rv.on{opacity:1;transform:none}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07070A">
+  <meta name="description" content="Vertux Nexus собирает персональные workspace, AI-виджеты и локальные интеграции компании в одном защищённом приложении.">
+  <title>Vertux Nexus - бизнес собирается в одном приложении</title>
+  <meta property="og:title" content="Vertux Nexus - ваш бизнес в одном приложении">
+  <meta property="og:description" content="Персональный workspace, AI-виджет, usage и локальные интеграции с единым входом.">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <style>
+    :root{
+      color-scheme:dark;
+      --bg:#07070a;--bg-soft:#0a0a0f;--surface:#111118;--surface-2:#171721;
+      --text:#f6f5fb;--muted:#aaa7b5;--faint:#6d6978;--line:rgba(255,255,255,.1);
+      --line-bright:rgba(255,255,255,.18);--purple:#7c5cff;--purple-soft:#c8bcff;
+      --purple-deep:#4d32d8;--cyan:#73e7ff;--green:#66e3b4;
+      --display:'Unbounded',system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;
+      --mono:'JetBrains Mono',monospace;--page:min(1380px,calc(100vw - 48px));
+      --mx:50vw;--my:30vh;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;-webkit-font-smoothing:antialiased}
+    body:before{content:"";position:fixed;z-index:1000;inset:0;pointer-events:none;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+    body:after{content:"";position:fixed;z-index:-3;inset:0;pointer-events:none;background:radial-gradient(520px circle at var(--mx) var(--my),rgba(124,92,255,.09),transparent 72%)}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;color:inherit;cursor:pointer}
+    svg{display:block}
+    .page{width:var(--page);margin-inline:auto}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .mono{font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+    .eyebrow{display:flex;align-items:center;gap:10px;margin:0;color:var(--purple-soft);font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:24px;height:1px;background:currentColor}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+    .reveal.visible{opacity:1;transform:none}
+    .focus-ring:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--purple-soft);outline-offset:4px}
 
-/* ---------- header ---------- */
-header{position:sticky;top:0;z-index:50;background:rgba(10,10,18,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--hair)}
-.nav{display:flex;align-items:center;gap:28px;height:68px}
-.logo{display:flex;align-items:center;gap:11px;margin-right:auto}
-.logo .mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--ac),#5A3FD6);display:grid;place-items:center;font-family:var(--display);font-weight:800;color:#fff;font-size:17px}
-.logo .t{display:flex;flex-direction:column;line-height:1.1}
-.logo .t b{font-family:var(--display);font-size:14px;letter-spacing:.13em}
-.logo .t span{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--ac2);text-transform:uppercase}
-.nav a.lnk{font-size:14px;color:var(--mut);transition:.15s}
-.nav a.lnk:hover{color:var(--text)}
-.nav .btn{padding:10px 18px;font-size:13.5px}
-@media(max-width:900px){.nav a.lnk{display:none}}
-@media(max-width:520px){
-  html,body{width:100%;max-width:100%;overflow-x:hidden}
-  .wrap{padding-inline:18px}
-  .nav{height:62px;gap:12px}
-  .nav>.btn{display:none}
-  .logo .t b{font-size:12px}.logo .t span{font-size:8px}
-}
+    .topbar{position:fixed;z-index:100;top:0;left:0;right:0;transition:background .3s,border-color .3s}
+    .topbar.scrolled{background:rgba(7,7,10,.72);border-bottom:1px solid var(--line);backdrop-filter:blur(24px)}
+    .nav-shell{width:min(1440px,calc(100vw - 32px));height:82px;margin:auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+    .brand{display:flex;align-items:center;gap:12px;width:max-content}
+    .brand-mark{position:relative;width:36px;height:36px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.8);border-radius:10px;background:#fff;color:#0a0a0f;font:800 14px var(--display);box-shadow:0 0 0 5px rgba(124,92,255,.08),0 12px 30px rgba(124,92,255,.24)}
+    .brand-mark:after{content:"";position:absolute;inset:-7px;border:1px solid rgba(124,92,255,.22);border-radius:15px}
+    .brand-copy{display:grid;gap:2px}
+    .brand-copy strong{font:700 13px var(--display);letter-spacing:-.04em}
+    .brand-copy small{color:var(--faint);font:500 7px var(--mono);letter-spacing:.16em}
+    .nav-links{display:flex;align-items:center;gap:32px}
+    .nav-links a{position:relative;color:var(--muted);font-size:12px;font-weight:600;transition:color .2s}
+    .nav-links a:after{content:"";position:absolute;left:0;right:100%;bottom:-8px;height:1px;background:var(--purple);transition:right .25s}
+    .nav-links a:hover{color:#fff}.nav-links a:hover:after{right:0}
+    .nav-actions{justify-self:end;display:flex;gap:9px}
+    .nav-button,.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;border:1px solid var(--line-bright);font-weight:700;transition:transform .25s,border-color .25s,background .25s,box-shadow .25s}
+    .nav-button{height:42px;padding:0 17px;background:rgba(255,255,255,.035);font-size:11px}
+    .nav-button:hover,.button.ghost:hover{transform:translateY(-2px);border-color:rgba(200,188,255,.55);background:rgba(124,92,255,.08)}
+    .nav-button.primary,.button.primary{border-color:var(--purple);background:var(--purple);box-shadow:0 14px 40px rgba(124,92,255,.23)}
+    .nav-button.primary:hover,.button.primary:hover{transform:translateY(-2px);background:#896fff;box-shadow:0 18px 52px rgba(124,92,255,.35)}
+    .menu-toggle{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.035)}
 
-/* ---------- hero ---------- */
-.hero{padding:84px 0 70px;position:relative;overflow:hidden}
-.spot{position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,255,.13),transparent 65%);pointer-events:none;transform:translate(-50%,-50%);z-index:0}
-.hero .wrap{display:grid;grid-template-columns:1.06fr .94fr;gap:56px;align-items:center}
-@media(max-width:980px){.hero .wrap{grid-template-columns:minmax(0,1fr)}}
-.hero .wrap>*{min-width:0}
-.hero h1{font-size:clamp(34px,5.2vw,58px);margin:20px 0 18px}
-.hero h1 em{font-style:normal;color:var(--ac2);position:relative}
-.hero .sub{color:var(--mut);font-size:17.5px;max-width:520px;margin-bottom:30px}
-.hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
-.hero-stats{display:flex;gap:0;border:1px solid var(--hair);border-radius:var(--r);overflow:hidden;max-width:540px}
-.hstat{flex:1;padding:16px 20px;border-left:1px solid var(--hair)}
-.hstat:first-child{border-left:none}
-.hstat b{display:block;font-family:var(--display);font-size:24px;color:var(--text)}
-.hstat span{font-size:11.5px;color:var(--mut2)}
-/* мокап приложения */
-.mock{background:var(--bg2);border:1px solid var(--line2);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 60px rgba(124,92,255,.07);overflow:hidden;position:relative}
-.mock .bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--hair);background:var(--panel)}
-.mock .bar i{width:10px;height:10px;border-radius:50%;background:#3A3A4C}
-.mock .bar i:first-child{background:#FF5F57}.mock .bar i:nth-child(2){background:#FEBC2E}.mock .bar i:nth-child(3){background:#2BD158}
-.mock .bar .addr{margin-left:10px;font-family:var(--mono);font-size:10.5px;color:var(--mut2)}
-.mock .body{display:grid;grid-template-columns:132px 1fr;min-height:330px}
-.mock .side{border-right:1px solid var(--hair);padding:12px 0;background:var(--panel)}
-.mock .side .it{display:flex;align-items:center;gap:8px;padding:8px 14px;font-size:11px;color:var(--mut2)}
-.mock .side .it i{width:13px;height:13px;border:1.4px solid currentColor;border-radius:4px;flex:0 0 auto}
-.mock .side .it.on{color:var(--ac2);background:rgba(124,92,255,.10);border-right:2px solid var(--ac)}
-.mock .main{padding:16px}
-.mock .kpis{display:flex;gap:9px;margin-bottom:14px}
-.mock .kpi{flex:1;background:var(--panel);border:1px solid var(--hair);border-radius:9px;padding:9px 11px}
-.mock .kpi span{font-size:9.5px;color:var(--mut2);display:block;font-family:var(--mono);letter-spacing:.06em}
-.mock .kpi b{font-family:var(--display);font-size:16px;font-weight:700}
-.mock .kpi b.money{color:var(--ok)}
-.mrow{display:flex;align-items:center;gap:10px;padding:9px 10px;border-top:1px solid var(--hair);font-size:12px}
-.mrow .av{width:24px;height:24px;border-radius:7px;background:var(--panel3);display:grid;place-items:center;font-weight:700;font-size:11px;color:var(--ac2);flex:0 0 auto}
-.mrow .nm{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mrow .st{margin-left:auto;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap;transition:.4s}
-.st.s0{background:#26263A;color:#9C99B0}
-.st.s1{background:rgba(79,157,255,.15);color:#4F9DFF}
-.st.s2{background:rgba(194,178,255,.16);color:var(--ac2)}
-.st.s3{background:rgba(43,209,88,.15);color:var(--ok)}
-.mrow.flash{animation:rowflash .8s ease}
-@keyframes rowflash{0%{background:rgba(124,92,255,.14)}100%{background:transparent}}
-.mock .foot{border-top:1px solid var(--hair);padding:9px 14px;font-family:var(--mono);font-size:9.5px;color:var(--mut2);display:flex;gap:8px;align-items:center}
-.mock .foot i{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok)}
-.badge-spin{position:absolute;top:-34px;right:26px;width:96px;height:96px;z-index:2;animation:spin 14s linear infinite;opacity:.9}
-@keyframes spin{to{transform:rotate(360deg)}}
-@media(max-width:620px){
-  .hero{padding:58px 0 50px}
-  .hero .wrap,.hero .wrap>*{width:100%;max-width:100%;min-width:0}
-  .hero h1{max-width:100%;font-size:clamp(28px,8.4vw,36px);overflow-wrap:anywhere;word-break:break-word}
-  .hero .sub{font-size:15.5px}
-  .hero .cta-row{display:grid;grid-template-columns:1fr;margin-bottom:28px}
-  .hero .cta-row .btn{justify-content:center;width:100%}
-  .hero-stats{width:100%;max-width:100%;overflow:hidden}
-  .hstat{min-width:0;padding:12px 9px}
-  .hstat b{font-size:18px;white-space:normal}
-  .hstat span{font-size:9.5px;line-height:1.35;overflow-wrap:anywhere}
-  .mock{max-width:100%}
-  .mock .body{grid-template-columns:82px minmax(0,1fr);min-height:300px}
-  .mock .side .it{padding:8px 7px;font-size:9px;gap:5px}
-  .mock .side .it i{width:10px;height:10px}
-  .mock .main{padding:10px;min-width:0}
-  .mock .kpi{padding:8px 7px;min-width:0}
-  .mock .kpi span{font-size:8px}.mock .kpi b{font-size:13px}
-  .mock .kpi:nth-child(3){display:none}
-  .mrow{padding:8px 5px;gap:6px;font-size:10px;min-width:0}
-  .mrow .av{width:20px;height:20px}
-  .mrow .st{font-size:8px;padding:3px 6px;max-width:72px;overflow:hidden;text-overflow:ellipsis}
-  .badge-spin{width:72px;height:72px;right:8px;top:-25px}
-  .sec{padding:68px 0}
-}
+    .hero{position:relative;min-height:1120px;padding:154px 0 80px;overflow:hidden}
+    .hero-grid{position:absolute;z-index:-2;inset:0;background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,#000 0,rgba(0,0,0,.85) 55%,transparent 93%)}
+    .hero-glow{position:absolute;z-index:-1;top:-260px;left:50%;width:1100px;height:900px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(124,92,255,.24),rgba(124,92,255,.06) 40%,transparent 68%);filter:blur(12px)}
+    .hero-copy{position:relative;z-index:5;max-width:1050px;margin:0 auto;text-align:center}
+    .hero-kicker{width:max-content;margin:0 auto 24px;padding:8px 13px;display:flex;align-items:center;gap:9px;border:1px solid rgba(124,92,255,.25);border-radius:999px;background:rgba(124,92,255,.065);color:var(--purple-soft);font:500 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(10px)}
+    .hero-kicker i{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+    h1{margin:0;font:650 clamp(56px,8.3vw,126px)/.91 var(--display);letter-spacing:-.085em}
+    h1 .line{display:block}
+    h1 .accent{position:relative;color:var(--purple-soft);text-shadow:0 0 40px rgba(124,92,255,.22)}
+    h1 .accent:after{content:"";position:absolute;left:2%;right:2%;bottom:-12px;height:13px;background:radial-gradient(ellipse,rgba(124,92,255,.5),transparent 70%);filter:blur(7px)}
+    .hero-copy>p{max-width:680px;margin:31px auto 0;color:var(--muted);font-size:clamp(16px,1.4vw,20px);line-height:1.65}
+    .hero-actions{margin-top:31px;display:flex;justify-content:center;gap:11px;flex-wrap:wrap}
+    .button{height:52px;padding:0 22px;background:rgba(255,255,255,.035);font-size:13px}
+    .button svg{width:17px;height:17px}
+    .button .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+    .hero-meta{margin-top:17px;color:var(--faint);font:500 8px var(--mono);letter-spacing:.1em;text-transform:uppercase}
 
-/* ---------- marquee ---------- */
-.marq{border-block:1px solid var(--hair);padding:15px 0;overflow:hidden;background:var(--bg2)}
-.marq .in{display:flex;gap:44px;white-space:nowrap;animation:marq 26s linear infinite;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut2)}
-.marq .in b{color:var(--ac2);font-weight:500}
-@keyframes marq{to{transform:translateX(-50%)}}
+    .product-orbit{position:relative;height:630px;margin:68px auto 0;perspective:1500px}
+    .orbit-ring{position:absolute;left:50%;top:44%;width:1100px;height:410px;border:1px solid rgba(124,92,255,.13);border-radius:50%;transform:translate(-50%,-50%) rotate(-5deg)}
+    .orbit-ring.r2{width:820px;height:300px;border-color:rgba(115,231,255,.09);transform:translate(-50%,-50%) rotate(8deg)}
+    .orbit-ring:before,.orbit-ring:after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:var(--purple-soft);box-shadow:0 0 18px var(--purple)}
+    .orbit-ring:before{left:13%;top:25%}.orbit-ring:after{right:9%;bottom:30%;background:var(--cyan);box-shadow:0 0 18px var(--cyan)}
+    .app-device{position:absolute;z-index:4;left:50%;top:42px;width:min(1120px,82vw);height:570px;transform:translateX(-50%) rotateX(5deg) rotateY(var(--tilt-x,0deg));transform-style:preserve-3d;transition:transform .16s linear}
+    .device-frame{position:absolute;inset:0;border:1px solid rgba(255,255,255,.2);border-radius:24px;background:#0a0a0e;box-shadow:0 80px 150px rgba(0,0,0,.68),0 0 100px rgba(124,92,255,.16),inset 0 1px rgba(255,255,255,.08);overflow:hidden}
+    .device-frame:before{content:"";position:absolute;z-index:10;inset:0;border-radius:24px;pointer-events:none;background:linear-gradient(125deg,rgba(255,255,255,.15),transparent 13%,transparent 68%,rgba(124,92,255,.08));mix-blend-mode:screen}
+    .device-top{height:50px;padding:0 17px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid var(--line);background:#0e0e13}
+    .traffic{display:flex;gap:6px}.traffic i{width:7px;height:7px;border-radius:50%;background:#353541}.traffic i:first-child{background:var(--purple)}
+    .device-url{padding:7px 17px;border:1px solid var(--line);border-radius:999px;color:#777382;font:500 7px var(--mono);letter-spacing:.08em}
+    .device-live{justify-self:end;display:flex;align-items:center;gap:7px;color:#8d8997;font:500 7px var(--mono)}.device-live i{width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+    .device-body{height:calc(100% - 50px);display:grid;grid-template-columns:190px 1fr}
+    .device-side{padding:18px 12px;border-right:1px solid var(--line);background:#0b0b10}
+    .side-logo{padding:0 8px 21px;display:flex;align-items:center;gap:9px;font:700 10px var(--display)}
+    .side-logo i{width:25px;height:25px;display:grid;place-items:center;border-radius:7px;background:#fff;color:#09090c;font:800 9px var(--display);font-style:normal}
+    .side-caption{margin:14px 9px 6px;color:#4f4c59;font:500 6px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+    .side-nav{height:35px;padding:0 9px;display:flex;align-items:center;gap:8px;border-radius:8px;color:#74707e;font-size:8px}
+    .side-nav svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.5}
+    .side-nav.active{color:#fff;background:linear-gradient(90deg,rgba(124,92,255,.18),rgba(124,92,255,.04))}
+    .side-nav.active svg{color:var(--purple-soft)}
+    .user-tile{margin-top:44px;padding:10px;display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:9px;background:#101016}
+    .user-avatar{width:26px;height:26px;display:grid;place-items:center;border-radius:7px;background:linear-gradient(135deg,var(--purple),#332069);font:600 7px var(--mono)}
+    .user-tile span{display:grid;gap:2px;font-size:7px}.user-tile small{color:#5f5b68;font:500 5px var(--mono)}
+    .device-main{position:relative;padding:25px 27px;background:radial-gradient(circle at 85% 0,rgba(124,92,255,.09),transparent 28%),#101015;overflow:hidden}
+    .app-head{display:flex;align-items:flex-start;justify-content:space-between}
+    .app-head small{color:var(--purple-soft);font:500 6px var(--mono);letter-spacing:.12em}.app-head h2{margin:6px 0 0;font-size:19px;letter-spacing:-.04em}
+    .app-head-actions{display:flex;gap:7px}.app-icon-button{width:31px;height:31px;display:grid;place-items:center;border:1px solid var(--line);border-radius:8px;background:#15151c}.app-icon-button svg{width:12px;height:12px;stroke:#aaa6b4;fill:none}
+    .company-banner{margin-top:19px;padding:15px 17px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(124,92,255,.2);border-radius:12px;background:linear-gradient(100deg,rgba(124,92,255,.13),rgba(124,92,255,.035) 55%,rgba(115,231,255,.025))}
+    .company-id{display:flex;align-items:center;gap:11px}.company-emblem{width:37px;height:37px;display:grid;place-items:center;border-radius:10px;background:rgba(124,92,255,.15);color:var(--purple-soft);font:600 8px var(--mono)}
+    .company-id strong,.company-id small{display:block}.company-id strong{font-size:10px}.company-id small{margin-top:3px;color:#6f6b79;font:500 6px var(--mono)}
+    .company-state{display:flex;align-items:center;gap:7px;color:var(--green);font:500 6px var(--mono)}.company-state i{width:5px;height:5px;border-radius:50%;background:currentColor}
+    .app-layout{display:grid;grid-template-columns:1.35fr .65fr;gap:9px;margin-top:9px}
+    .app-block{border:1px solid var(--line);border-radius:11px;background:#14141b;overflow:hidden}
+    .block-head{height:40px;padding:0 13px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .block-head strong{font-size:8px}.block-head span{color:#615d6b;font:500 6px var(--mono)}
+    .product-list{padding:7px}.product-row{padding:10px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:9px;border-radius:8px;transition:background .2s}.product-row:hover{background:rgba(255,255,255,.025)}
+    .product-glyph{width:29px;height:29px;display:grid;place-items:center;border:1px solid rgba(124,92,255,.25);border-radius:8px;background:rgba(124,92,255,.08);color:var(--purple-soft);font:500 6px var(--mono)}
+    .product-row strong,.product-row small{display:block}.product-row strong{font-size:8px}.product-row small{margin-top:3px;color:#615d6b;font:500 5px var(--mono)}
+    .row-state{padding:5px 7px;border:1px solid rgba(102,227,180,.2);border-radius:999px;color:var(--green);font:500 5px var(--mono)}
+    .usage-chart{height:116px;padding:15px 13px 10px;display:flex;align-items:flex-end;gap:6px}
+    .usage-chart i{flex:1;min-width:4px;border-radius:3px 3px 1px 1px;background:linear-gradient(to top,var(--purple-deep),var(--purple-soft));transform-origin:bottom;animation:barPulse 4s ease-in-out infinite alternate}
+    .usage-chart i:nth-child(1){height:22%}.usage-chart i:nth-child(2){height:46%}.usage-chart i:nth-child(3){height:33%}.usage-chart i:nth-child(4){height:68%}.usage-chart i:nth-child(5){height:52%}.usage-chart i:nth-child(6){height:82%}.usage-chart i:nth-child(7){height:61%}.usage-chart i:nth-child(8){height:94%}
+    .usage-chart i:nth-child(2n){animation-delay:-1.4s}.usage-chart i:nth-child(3n){animation-delay:-2.2s}
+    .usage-meta{padding:11px 13px;border-top:1px solid var(--line);display:flex;justify-content:space-between}.usage-meta span{color:#615d6b;font:500 5px var(--mono)}.usage-meta b{font:600 7px var(--mono);color:var(--purple-soft)}
+    @keyframes barPulse{to{filter:brightness(1.25);transform:scaleY(.82)}}
+    .float-card{position:absolute;z-index:8;min-width:170px;padding:12px 13px;display:flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.16);border-radius:13px;background:rgba(17,17,24,.78);box-shadow:0 20px 50px rgba(0,0,0,.4);backdrop-filter:blur(18px);animation:floatY 5s ease-in-out infinite}
+    .float-card .fc-icon{width:31px;height:31px;display:grid;place-items:center;border-radius:9px;background:rgba(124,92,255,.16);color:var(--purple-soft);font:600 7px var(--mono)}
+    .float-card strong,.float-card small{display:block}.float-card strong{font-size:9px}.float-card small{margin-top:4px;color:#777382;font:500 6px var(--mono)}
+    .float-card.one{left:1.5%;top:23%}.float-card.two{right:0;top:17%;animation-delay:-1.7s}.float-card.three{left:6%;bottom:8%;animation-delay:-3.1s}.float-card.four{right:3%;bottom:5%;animation-delay:-2.3s}
+    .float-card .signal{margin-left:auto;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+    @keyframes floatY{50%{transform:translateY(-12px)}}
+    .hero-fade{position:absolute;left:0;right:0;bottom:0;height:260px;background:linear-gradient(transparent,var(--bg))}
 
-/* ---------- боль ---------- */
-.pains{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:860px){.pains{grid-template-columns:1fr}}
-.pain{background:var(--panel);border:1px solid var(--hair);border-radius:var(--r);padding:26px;transition:.25s}
-.pain:hover{transform:translateY(-4px);border-color:var(--line2)}
-.pain .ic{width:44px;height:44px;border-radius:11px;background:rgba(124,92,255,.10);display:grid;place-items:center;margin-bottom:18px;color:var(--ac2)}
-.pain h3{font-size:16px;margin-bottom:9px}
-.pain p{color:var(--mut);font-size:14.5px}
+    .signal-strip{position:relative;z-index:5;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0a0a0e;overflow:hidden}
+    .marquee{width:max-content;height:58px;display:flex;align-items:center;animation:marquee 28s linear infinite}
+    .marquee span{display:flex;align-items:center;gap:13px;padding:0 31px;color:#807c89;font:500 8px var(--mono);letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}
+    .marquee i{width:5px;height:5px;border-radius:50%;background:var(--purple);box-shadow:0 0 10px var(--purple)}
+    @keyframes marquee{to{transform:translateX(-50%)}}
 
-/* ---------- продукты ---------- */
-.prods{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-@media(max-width:860px){.prods{grid-template-columns:1fr}}
-.prod{background:var(--panel);border:1px solid var(--hair);border-radius:var(--r);padding:30px;position:relative;transition:.25s;overflow:hidden}
-.prod:hover{transform:translateY(-4px);border-color:var(--line2)}
-.prod::after{content:"";position:absolute;top:0;right:0;width:130px;height:130px;background:radial-gradient(circle at top right,rgba(124,92,255,.10),transparent 70%)}
-.prod .idx{font-family:var(--mono);font-size:11px;color:var(--ac2);letter-spacing:.14em}
-.prod h3{font-size:19px;margin:12px 0 10px}
-.prod p{color:var(--mut);font-size:14.5px;margin-bottom:16px}
-.prod ul{list-style:none}
-.prod li{font-size:13.5px;color:var(--mut);padding:6px 0 6px 22px;position:relative;border-top:1px solid var(--hair)}
-.prod li::before{content:"";position:absolute;left:2px;top:13px;width:9px;height:5px;border-left:1.6px solid var(--ok);border-bottom:1.6px solid var(--ok);transform:rotate(-45deg)}
-.prod .price{margin-top:16px;font-family:var(--mono);font-size:12px;color:var(--ac2)}
+    .section{position:relative;padding:150px 0}
+    .section-intro{max-width:830px}.section-intro h2{margin:20px 0 22px;font:650 clamp(42px,6.3vw,92px)/.98 var(--display);letter-spacing:-.075em}
+    .section-intro>p:last-child{max-width:650px;margin:0;color:var(--muted);font-size:18px;line-height:1.7}
 
-/* ---------- кейс ---------- */
-.case .wrap2{display:grid;grid-template-columns:.92fr 1.08fr;gap:50px;align-items:center}
-@media(max-width:980px){.case .wrap2{grid-template-columns:minmax(0,1fr)}}
-.case .wrap2>*{min-width:0}
-.case .facts{list-style:none;margin:22px 0 26px}
-.case .facts li{padding:11px 0 11px 30px;border-top:1px solid var(--hair);color:var(--mut);font-size:15px;position:relative}
-.case .facts li b{color:var(--text)}
-.case .facts li::before{content:"";position:absolute;left:4px;top:19px;width:10px;height:6px;border-left:2px solid var(--ac);border-bottom:2px solid var(--ac);transform:rotate(-45deg)}
-.honest{display:inline-flex;gap:9px;align-items:flex-start;background:rgba(254,188,46,.07);border:1px dashed rgba(254,188,46,.35);border-radius:var(--rs);padding:11px 14px;font-size:12.5px;color:var(--mut)}
+    .story{padding-bottom:100px}
+    .story-layout{display:grid;grid-template-columns:.77fr 1.23fr;gap:80px;margin-top:70px}
+    .story-copy{padding-bottom:25vh}
+    .story-step{min-height:66vh;padding:12vh 0 80px;border-top:1px solid var(--line);opacity:.28;transition:opacity .45s}
+    .story-step.active{opacity:1}
+    .step-index{color:var(--purple-soft);font:500 9px var(--mono);letter-spacing:.12em}
+    .story-step h3{max-width:520px;margin:19px 0 16px;font:650 clamp(31px,3.8vw,58px)/1.03 var(--display);letter-spacing:-.065em}
+    .story-step p{max-width:500px;margin:0;color:var(--muted);font-size:16px;line-height:1.75}
+    .step-points{margin-top:26px;display:grid;gap:12px}
+    .step-points span{display:flex;align-items:center;gap:10px;color:#d7d4df;font-size:12px}.step-points span:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--purple)}
+    .story-stage-wrap{position:relative}
+    .story-stage{position:sticky;top:105px;height:calc(100vh - 140px);min-height:630px;display:grid;place-items:center}
+    .stage-halo{position:absolute;width:90%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(124,92,255,.18),rgba(124,92,255,.04) 42%,transparent 68%);filter:blur(10px)}
+    .stage-shell{position:relative;width:min(720px,100%);aspect-ratio:1.16;border:1px solid var(--line-bright);border-radius:24px;background:#0d0d12;box-shadow:0 45px 110px rgba(0,0,0,.55),0 0 70px rgba(124,92,255,.09);overflow:hidden}
+    .stage-shell:before{content:"";position:absolute;z-index:8;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(255,255,255,.1),transparent 18%,transparent 75%,rgba(124,92,255,.08))}
+    .stage-bar{height:48px;padding:0 15px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:#101016}
+    .stage-title{font:600 8px var(--mono);letter-spacing:.13em}.stage-status{display:flex;align-items:center;gap:7px;color:var(--green);font:500 6px var(--mono)}.stage-status i{width:5px;height:5px;border-radius:50%;background:currentColor}
+    .scene{position:absolute;inset:49px 0 0;padding:27px;opacity:0;transform:translateY(18px) scale(.985);pointer-events:none;transition:opacity .5s,transform .65s cubic-bezier(.2,.7,.2,1)}
+    .scene.active{opacity:1;transform:none;pointer-events:auto}
+    .scene-label{color:var(--purple-soft);font:500 7px var(--mono);letter-spacing:.13em}.scene h4{margin:8px 0 18px;font-size:18px;letter-spacing:-.035em}
+    .scene-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+    .scene-product{position:relative;min-height:155px;padding:17px;border:1px solid var(--line);border-radius:12px;background:#14141b;overflow:hidden}
+    .scene-product:after{content:"";position:absolute;right:-35px;bottom:-45px;width:110px;height:110px;border:1px solid rgba(124,92,255,.15);border-radius:50%}
+    .scene-product span{color:#777280;font:500 6px var(--mono)}.scene-product h5{margin:33px 0 7px;font-size:11px}.scene-product p{max-width:185px;margin:0;color:#6d6977;font-size:8px;line-height:1.55}
+    .scene-product .mini-state{position:absolute;right:13px;top:13px;color:var(--green)}
+    .widget-scene{height:100%;display:grid;grid-template-columns:1.08fr .92fr;gap:10px}
+    .chat-window,.analytics-window{border:1px solid var(--line);border-radius:13px;background:#14141b;overflow:hidden}
+    .chat-head{height:49px;padding:0 14px;display:flex;align-items:center;gap:9px;border-bottom:1px solid var(--line)}.bot-mark{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;background:rgba(124,92,255,.14);color:var(--purple-soft);font:600 7px var(--mono)}
+    .chat-head strong,.chat-head small{display:block}.chat-head strong{font-size:8px}.chat-head small{margin-top:2px;color:var(--green);font:500 5px var(--mono)}
+    .messages{padding:16px;display:grid;gap:9px}.bubble{max-width:82%;padding:10px 11px;border-radius:10px;background:#1a1a23;color:#a8a4b0;font-size:7px;line-height:1.55}.bubble.user{justify-self:end;background:var(--purple);color:#fff}.typing{display:flex;gap:3px}.typing i{width:4px;height:4px;border-radius:50%;background:#8e8997;animation:typing 1.1s infinite}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+    @keyframes typing{50%{transform:translateY(-3px);opacity:.45}}
+    .analytic-head{padding:15px;border-bottom:1px solid var(--line)}.analytic-head span{color:#706c79;font:500 6px var(--mono)}.analytic-head b{display:block;margin-top:7px;font:650 22px var(--display)}
+    .donut{position:relative;width:115px;height:115px;margin:23px auto;border-radius:50%;background:conic-gradient(var(--purple) 0 72%,#23232e 72%);display:grid;place-items:center}.donut:before{content:"";width:82px;height:82px;border-radius:50%;background:#14141b}.donut span{position:absolute;font:600 12px var(--display)}
+    .answer-stats{padding:0 15px 15px;display:grid;gap:7px}.answer-stats div{display:flex;justify-content:space-between;color:#797582;font-size:7px}.answer-stats b{color:#d9d5df}
+    .hybrid-map{position:relative;height:100%}.map-node{position:absolute;width:152px;padding:15px;border:1px solid var(--line);border-radius:13px;background:#15151c;text-align:center;box-shadow:0 25px 50px rgba(0,0,0,.25)}.map-node strong{display:block;font-size:9px}.map-node small{display:block;margin-top:5px;color:#686472;font:500 6px var(--mono)}.map-node.hub{left:50%;top:12%;transform:translateX(-50%);border-color:rgba(124,92,255,.35)}.map-node.cloud{left:10%;bottom:17%}.map-node.local{right:10%;bottom:17%}.map-node.local:after{content:"1С";position:absolute;right:10px;top:10px;width:24px;height:24px;display:grid;place-items:center;border-radius:7px;background:rgba(115,231,255,.11);color:var(--cyan);font:600 6px var(--mono)}.map-line{position:absolute;left:50%;top:36%;width:1px;height:34%;background:linear-gradient(var(--purple),rgba(124,92,255,.1))}.map-line:before,.map-line:after{content:"";position:absolute;bottom:0;width:235px;height:1px;background:linear-gradient(90deg,transparent,var(--purple))}.map-line:before{right:0;transform-origin:right;transform:rotate(-25deg)}.map-line:after{left:0;transform-origin:left;transform:rotate(25deg);background:linear-gradient(90deg,var(--purple),transparent)}.packet{position:absolute;z-index:4;left:calc(50% - 3px);top:39%;width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:packet 2.8s ease-in-out infinite}@keyframes packet{70%,100%{top:67%;opacity:.2}}
+    .map-note{position:absolute;left:50%;bottom:2%;transform:translateX(-50%);color:#686472;font:500 6px var(--mono);white-space:nowrap}
 
-/* ---------- сравнение ---------- */
-.cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:860px){.cmp{grid-template-columns:1fr}}
-.cmp .col{background:var(--panel);border:1px solid var(--hair);border-radius:var(--r);padding:26px}
-.cmp .col.win{border-color:var(--ac);background:linear-gradient(170deg,rgba(124,92,255,.09),var(--panel) 55%);position:relative}
-.cmp h3{font-size:16px;margin-bottom:4px}
-.cmp .who{font-family:var(--mono);font-size:10.5px;color:var(--mut2);letter-spacing:.12em;text-transform:uppercase}
-.cmp ul{list-style:none;margin-top:16px}
-.cmp li{font-size:13.5px;padding:8px 0 8px 24px;border-top:1px solid var(--hair);color:var(--mut);position:relative}
-.cmp li.bad::before{content:"";position:absolute;left:3px;top:14px;width:10px;height:10px;background:
-  linear-gradient(45deg,transparent 44%,#FF5F57 44%,#FF5F57 56%,transparent 56%),
-  linear-gradient(-45deg,transparent 44%,#FF5F57 44%,#FF5F57 56%,transparent 56%)}
-.cmp li.good::before{content:"";position:absolute;left:2px;top:15px;width:10px;height:6px;border-left:2px solid var(--ok);border-bottom:2px solid var(--ok);transform:rotate(-45deg)}
+    .showcase{padding-top:90px;overflow:hidden}
+    .showcase-head{display:flex;align-items:end;justify-content:space-between;gap:60px}.showcase-head .section-intro{max-width:900px}.showcase-note{max-width:310px;margin-bottom:8px;color:var(--muted);font-size:14px;line-height:1.65}
+    .worlds{margin-top:70px;display:grid;gap:13px}
+    .world{position:relative;min-height:420px;border:1px solid var(--line);border-radius:25px;background:#0e0e13;overflow:hidden;transition:border-color .3s}
+    .world:hover{border-color:rgba(124,92,255,.35)}
+    .world-bg{position:absolute;inset:0;background:radial-gradient(circle at 78% 50%,rgba(124,92,255,.18),transparent 38%)}
+    .world.widget .world-bg{background:radial-gradient(circle at 75% 45%,rgba(115,231,255,.11),transparent 35%)}
+    .world.hybrid .world-bg{background:radial-gradient(circle at 72% 50%,rgba(124,92,255,.12),transparent 42%),linear-gradient(115deg,transparent,rgba(255,255,255,.015))}
+    .world-copy{position:relative;z-index:3;width:48%;padding:58px}.world-index{color:var(--purple-soft);font:500 8px var(--mono);letter-spacing:.14em}.world h3{margin:47px 0 15px;font:650 clamp(34px,4.5vw,66px)/1 var(--display);letter-spacing:-.07em}.world p{max-width:510px;margin:0;color:var(--muted);line-height:1.75}.world-link{margin-top:30px;display:inline-flex;align-items:center;gap:10px;color:#ddd9e6;font-size:12px;font-weight:700}.world-link i{width:31px;height:31px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;font-style:normal;transition:transform .25s}.world:hover .world-link i{transform:translateX(4px);border-color:var(--purple)}
+    .world-visual{position:absolute;right:-1%;top:50%;width:52%;height:78%;transform:translateY(-50%)}
+    .workspace-stack{position:absolute;inset:8% 5%;perspective:1000px}.stack-card{position:absolute;inset:0;border:1px solid var(--line);border-radius:18px;background:#14141b;box-shadow:0 30px 70px rgba(0,0,0,.38)}.stack-card.back{transform:translate(45px,-26px) rotate(3deg);opacity:.35}.stack-card.middle{transform:translate(22px,-13px) rotate(1.5deg);opacity:.62}.stack-card.front{padding:20px;transform:rotate(-1deg)}.stack-top{height:40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.stack-top b{font-size:9px}.stack-top span{color:var(--green);font:500 6px var(--mono)}.stack-columns{height:calc(100% - 55px);padding-top:15px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stack-col{padding:10px;border:1px solid var(--line);border-radius:9px;background:#101016}.stack-col>span{color:#716d7a;font:500 5px var(--mono)}.task{height:48px;margin-top:8px;padding:9px;border:1px solid var(--line);border-radius:7px;background:#17171f}.task i{display:block;width:55%;height:4px;border-radius:3px;background:#44404d}.task:after{content:"";display:block;width:80%;height:3px;margin-top:8px;border-radius:3px;background:#292832}
+    .widget-orb{position:absolute;left:50%;top:50%;width:230px;height:230px;transform:translate(-50%,-50%);border:1px solid rgba(115,231,255,.2);border-radius:50%;box-shadow:inset 0 0 80px rgba(115,231,255,.05),0 0 80px rgba(115,231,255,.07);animation:orb 7s ease-in-out infinite}.widget-orb:before,.widget-orb:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(124,92,255,.22)}.widget-orb:before{inset:28px}.widget-orb:after{inset:62px;background:radial-gradient(circle,rgba(124,92,255,.22),transparent 70%)}@keyframes orb{50%{transform:translate(-50%,-50%) scale(1.04);filter:hue-rotate(14deg)}}
+    .orbit-message{position:absolute;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:rgba(18,18,25,.85);box-shadow:0 18px 40px rgba(0,0,0,.34);backdrop-filter:blur(12px);font-size:8px}.orbit-message.one{left:4%;top:19%}.orbit-message.two{right:1%;top:37%}.orbit-message.three{left:9%;bottom:12%}.orbit-message small{display:block;margin-top:5px;color:#6d6977;font:500 5px var(--mono)}
+    .bridge-visual{position:absolute;inset:12% 2%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px}.bridge-box{padding:23px;border:1px solid var(--line);border-radius:16px;background:#14141b;text-align:center;box-shadow:0 25px 55px rgba(0,0,0,.3)}.bridge-box i{width:42px;height:42px;margin:0 auto 15px;display:grid;place-items:center;border-radius:12px;background:rgba(124,92,255,.12);color:var(--purple-soft);font:600 8px var(--mono);font-style:normal}.bridge-box:last-child i{background:rgba(115,231,255,.1);color:var(--cyan)}.bridge-box strong{display:block;font-size:10px}.bridge-box small{display:block;margin-top:6px;color:#6e6977;font:500 6px var(--mono)}.bridge-flow{width:120px;height:1px;background:linear-gradient(90deg,var(--purple),var(--cyan));position:relative}.bridge-flow:after{content:"";position:absolute;top:-3px;left:0;width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 12px var(--cyan);animation:flow 2.4s linear infinite}@keyframes flow{to{left:calc(100% - 7px)}}
 
-/* ---------- процесс ---------- */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:step}
-@media(max-width:980px){.steps{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:620px){.steps{grid-template-columns:1fr}}
-.step{background:var(--panel);border:1px solid var(--hair);border-radius:var(--r);padding:24px;position:relative}
-.step .d{font-family:var(--mono);font-size:11px;color:var(--ac2);letter-spacing:.12em}
-.step h3{font-size:15.5px;margin:10px 0 8px}
-.step p{font-size:13.5px;color:var(--mut)}
-.step::after{counter-increment:step;content:counter(step,decimal-leading-zero);position:absolute;right:14px;top:8px;font-family:var(--display);font-weight:800;font-size:44px;color:transparent;-webkit-text-stroke:1px rgba(124,92,255,.18)}
+    .deployment{padding:150px 0 170px}
+    .deployment-grid{margin-top:66px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .deploy-option{position:relative;min-height:480px;padding:45px 48px;overflow:hidden}.deploy-option:first-child{border-right:1px solid var(--line)}
+    .deploy-number{position:absolute;right:22px;top:4px;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);font:650 140px var(--display);line-height:1}
+    .deploy-tag{color:var(--purple-soft);font:500 8px var(--mono);letter-spacing:.14em}.deploy-option h3{margin:70px 0 15px;font:650 clamp(31px,3.5vw,52px)/1 var(--display);letter-spacing:-.06em}.deploy-option>p{max-width:510px;margin:0;color:var(--muted);line-height:1.75}
+    .deploy-spec{margin-top:43px;display:grid;gap:0}.deploy-spec div{padding:13px 0;display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);font-size:11px}.deploy-spec span{color:#777381}.deploy-spec b{font-weight:650;text-align:right}
+    .deploy-option.recommended{background:radial-gradient(circle at 80% 25%,rgba(124,92,255,.12),transparent 38%)}.recommended-badge{position:absolute;left:48px;bottom:34px;padding:7px 10px;border:1px solid rgba(124,92,255,.32);border-radius:999px;color:var(--purple-soft);font:500 7px var(--mono)}
 
-/* ---------- shield ---------- */
-.shield-band{background:var(--bg2);border-block:1px solid var(--hair)}
-.shield-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-@media(max-width:860px){.shield-grid{grid-template-columns:repeat(2,1fr)}}
-.sh{padding:20px;border:1px solid var(--hair);border-radius:var(--r);background:var(--panel)}
-.sh b{display:block;font-size:14px;margin-bottom:6px}
-.sh span{font-size:12.5px;color:var(--mut)}
+    .final{position:relative;min-height:820px;padding:150px 0 75px;display:flex;align-items:center;text-align:center;overflow:hidden;border-top:1px solid var(--line)}
+    .final-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.024) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.024) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(circle,#000,transparent 70%)}
+    .final-orb{position:absolute;left:50%;top:48%;width:min(850px,80vw);aspect-ratio:1;transform:translate(-50%,-50%);border:1px solid rgba(124,92,255,.13);border-radius:50%;box-shadow:inset 0 0 150px rgba(124,92,255,.05)}.final-orb:before,.final-orb:after{content:"";position:absolute;border:1px solid rgba(124,92,255,.12);border-radius:50%}.final-orb:before{inset:11%}.final-orb:after{inset:28%;background:radial-gradient(circle,rgba(124,92,255,.2),transparent 65%);filter:blur(8px)}
+    .final-copy{position:relative;z-index:4;width:100%}.final-copy h2{max-width:1100px;margin:20px auto 21px;font:650 clamp(48px,7.7vw,112px)/.94 var(--display);letter-spacing:-.08em}.final-copy>p{max-width:650px;margin:0 auto;color:var(--muted);font-size:18px;line-height:1.65}.final-actions{margin-top:31px;display:flex;justify-content:center;gap:11px;flex-wrap:wrap}.final-note{margin-top:19px;color:var(--faint);font:500 8px var(--mono);letter-spacing:.1em;text-transform:uppercase}
 
-/* ---------- тарифы ---------- */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
-@media(max-width:900px){.plans{grid-template-columns:1fr}}
-.plan{background:var(--panel);border:1px solid var(--hair);border-radius:var(--r);padding:30px;display:flex;flex-direction:column;position:relative;transition:.25s}
-.plan:hover{transform:translateY(-4px)}
-.plan.hit{border-color:var(--ac);background:linear-gradient(170deg,rgba(124,92,255,.10),var(--panel) 60%);box-shadow:0 20px 60px rgba(124,92,255,.12)}
-.plan .tag-hit{position:absolute;top:-12px;left:26px;background:linear-gradient(135deg,var(--ac),#5A3FD6);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:.14em;padding:5px 12px;border-radius:20px}
-.plan h3{font-size:17px}
-.plan .pr{font-family:var(--display);font-size:30px;margin:14px 0 2px}
-.plan .pr small{font-size:13px;color:var(--mut2);font-family:var(--body);font-weight:400}
-.plan .per{font-size:12.5px;color:var(--mut2);margin-bottom:18px}
-.plan ul{list-style:none;flex:1}
-.plan li{font-size:13.5px;color:var(--mut);padding:7px 0 7px 22px;border-top:1px solid var(--hair);position:relative}
-.plan li::before{content:"";position:absolute;left:2px;top:14px;width:9px;height:5px;border-left:1.6px solid var(--ok);border-bottom:1.6px solid var(--ok);transform:rotate(-45deg)}
-.plan .btn{margin-top:22px;justify-content:center}
+    footer{position:relative;padding:28px 0 34px;border-top:1px solid var(--line);background:#08080b}
+    .footer-inner{width:var(--page);margin:auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
+    .footer-copy{color:#615d6b;font:500 8px var(--mono)}.footer-links{justify-self:end;display:flex;gap:22px}.footer-links a{color:#716d79;font-size:10px}.footer-links a:hover{color:#fff}
+    .vtx-credit{display:inline-flex;align-items:center;gap:8px;padding:7px 13px 7px 8px;border:1px solid rgba(124,92,255,.22);border-radius:999px;background:rgba(124,92,255,.07);color:#8b8b96;font-size:13px;font-weight:500;transition:.25s}.vtx-credit:hover{transform:translateY(-1px);border-color:rgba(124,92,255,.5);color:#aaa2c6}.vtx-credit__mark{width:22px;height:22px;display:grid;place-items:center;border-radius:6px;background:#fff;color:#0a0a0c;font:700 12px var(--display);box-shadow:0 3px 10px -2px rgba(124,92,255,.6)}.vtx-credit b{color:var(--purple);font-weight:700}
 
-/* ---------- FAQ ---------- */
-.faq{max-width:760px;margin:0 auto}
-.faq details{border:1px solid var(--hair);border-radius:var(--rs);background:var(--panel);margin-bottom:10px;overflow:hidden}
-.faq summary{padding:18px 22px;cursor:pointer;font-weight:600;font-size:15px;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--mono);color:var(--ac2);font-size:18px;transition:.2s}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq .a{padding:0 22px 18px;color:var(--mut);font-size:14.5px}
+    .modal{position:fixed;z-index:500;inset:0;padding:20px;display:grid;place-items:center;background:rgba(3,3,5,.76);backdrop-filter:blur(16px);opacity:0;pointer-events:none;transition:opacity .25s}
+    .modal.open{opacity:1;pointer-events:auto}.modal-card{position:relative;width:min(480px,100%);padding:34px;border:1px solid var(--line-bright);border-radius:20px;background:#121218;box-shadow:0 35px 100px rgba(0,0,0,.6);transform:translateY(12px) scale(.98);transition:transform .3s}.modal.open .modal-card{transform:none}.modal-label{color:var(--purple-soft);font:500 8px var(--mono);letter-spacing:.13em}.modal-card h3{margin:16px 0 12px;font:650 24px/1.18 var(--display);letter-spacing:-.05em}.modal-card p{margin:0;color:var(--muted);line-height:1.7}.modal-actions{margin-top:24px;display:flex;gap:9px}.modal-actions .button{height:44px;font-size:11px}.modal-close{position:absolute;right:15px;top:15px;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:transparent;color:#8c8895}
 
-/* ---------- форма ---------- */
-.cta-final{background:radial-gradient(ellipse 70% 100% at 50% 100%,rgba(124,92,255,.13),transparent 70%),var(--bg2);border-top:1px solid var(--hair)}
-.form-card{max-width:640px;margin:40px auto 0;background:var(--panel);border:1px solid var(--line2);border-radius:16px;padding:34px}
-.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:620px){.fgrid{grid-template-columns:1fr}}
-.form-card input,.form-card select,.form-card textarea{width:100%;background:var(--panel2);border:1px solid var(--hair);border-radius:var(--rs);color:var(--text);font-family:var(--body);font-size:14.5px;padding:13px 15px;outline:none;transition:.15s}
-.form-card input:focus,.form-card select:focus,.form-card textarea:focus{border-color:var(--ac)}
-.form-card textarea{grid-column:1/-1;resize:vertical;min-height:88px}
-.form-card select{appearance:none;grid-column:1/-1}
-.form-card .btn{width:100%;justify-content:center;margin-top:14px}
-.fmsg{min-height:22px;font-size:13.5px;margin-top:12px;text-align:center}
-.fmsg.ok{color:var(--ok)}.fmsg.err{color:#FF5F57}
-.hp{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
-
-/* ---------- footer ---------- */
-footer{border-top:1px solid var(--hair);padding:34px 0;background:var(--bg2)}
-footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
-footer .made{font-size:13px;color:var(--mut2)}
-footer .made a{color:var(--ac2)}
-footer .made a:hover{text-decoration:underline}
-</style>
+    @media(max-width:1100px){
+      :root{--page:min(100% - 36px,980px)}
+      .nav-links{display:none}.nav-shell{grid-template-columns:1fr auto}.nav-actions{display:none}.menu-toggle{display:grid;place-items:center}
+      .nav-links.open{position:absolute;top:70px;left:16px;right:16px;padding:22px;display:grid;gap:20px;border:1px solid var(--line);border-radius:18px;background:rgba(12,12,17,.96);backdrop-filter:blur(20px)}
+      .hero{min-height:980px}.app-device{width:96vw;height:510px}.product-orbit{height:550px}.float-card.one,.float-card.three{left:-2%}.float-card.two,.float-card.four{right:-2%}
+      .story-layout{grid-template-columns:.82fr 1.18fr;gap:35px}.story-stage{top:90px}.stage-shell{width:100%}
+      .world-copy{width:49%;padding:45px}.world-visual{width:53%}
+    }
+    @media(max-width:820px){
+      :root{--page:calc(100% - 28px)}
+      .hero{min-height:880px;padding-top:130px}.hero-copy>p{font-size:16px}.product-orbit{height:470px;margin-top:50px}
+      .app-device{top:20px;width:880px;height:460px;transform:translateX(-50%) rotateX(5deg) scale(.72);transform-origin:top center}
+      .float-card{transform:scale(.82);min-width:150px}.float-card.one{left:-13%;top:16%}.float-card.two{right:-12%;top:11%}.float-card.three{left:-8%;bottom:3%}.float-card.four{right:-9%;bottom:1%}
+      .story{padding-top:110px}.story-layout{display:block;margin-top:45px}.story-copy{padding:0}.story-step{min-height:auto;padding:65px 0;opacity:1}.story-stage-wrap{order:-1}.story-stage{position:relative;top:auto;height:auto;min-height:0;margin:15px 0 30px}.stage-shell{aspect-ratio:.95}.scene{padding:19px}.widget-scene{grid-template-columns:1fr}.analytics-window{display:none}.map-node{width:120px}.map-node.cloud{left:2%}.map-node.local{right:2%}
+      .showcase{padding-top:70px}.showcase-head{display:block}.showcase-note{margin-top:20px}.world{min-height:650px}.world-copy{width:100%;padding:38px}.world-visual{left:3%;right:3%;top:auto;bottom:0;width:94%;height:53%;transform:none}.world h3{margin-top:28px}.bridge-visual{grid-template-columns:1fr;gap:9px}.bridge-flow{width:1px;height:38px;margin:auto;background:linear-gradient(var(--purple),var(--cyan))}.bridge-flow:after{left:-3px;top:0;animation:flowV 2.4s linear infinite}@keyframes flowV{to{top:calc(100% - 7px)}}
+      .deployment-grid{grid-template-columns:1fr}.deploy-option:first-child{border-right:0;border-bottom:1px solid var(--line)}.deploy-option{padding:38px 28px}.recommended-badge{left:28px}
+      .footer-inner{grid-template-columns:1fr;justify-items:center}.footer-links{justify-self:center}.footer-copy{order:3}
+    }
+    @media(max-width:540px){
+      .nav-shell{height:70px}.brand-copy small{display:none}.brand-mark{width:32px;height:32px}.hero{min-height:810px;padding-top:116px}
+      h1{font-size:clamp(44px,14vw,64px);line-height:.95}.hero-copy>p{margin-top:24px}.hero-actions .button{width:100%}.hero-meta{line-height:1.6}
+      .product-orbit{height:390px}.app-device{width:770px;height:430px;transform:translateX(-50%) rotateX(5deg) scale(.55)}.orbit-ring{width:690px;height:290px}.float-card{display:none}
+      .section{padding:105px 0}.section-intro h2{font-size:39px}.section-intro>p:last-child{font-size:15px}
+      .story-step{padding:50px 0}.story-step h3{font-size:33px}.stage-shell{aspect-ratio:.78}.scene-grid{grid-template-columns:1fr}.scene-product{min-height:105px}.scene-product:nth-child(n+3){display:none}.hybrid-map{transform:scale(.9)}
+      .world{min-height:600px}.world-copy{padding:30px 24px}.world h3{font-size:37px}.world-visual{height:49%}.workspace-stack{inset:8% 0}.stack-columns{grid-template-columns:1fr 1fr}.stack-col:last-child{display:none}.widget-orb{width:180px;height:180px}.orbit-message.two{right:-4%}.bridge-box{padding:15px}
+      .deployment{padding:105px 0}.deploy-option{min-height:455px;padding:32px 22px}.deploy-option h3{font-size:35px;margin-top:62px}.deploy-number{font-size:110px}.recommended-badge{left:22px}
+      .final{min-height:720px;padding:110px 0 60px}.final-copy h2{font-size:48px}.final-copy>p{font-size:15px}.final-actions .button{width:100%}
+      .footer-links{flex-wrap:wrap;justify-content:center}.modal-card{padding:29px 22px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}.app-device{transition:none}
+    }
+  </style>
 </head>
 <body>
-
-<header>
-  <div class="wrap nav">
-    <a class="logo" href="#top">
-      <span class="mark">V</span>
-      <span class="t"><b>VERTUX</b><span>develop</span></span>
-    </a>
-    <a class="lnk" href="#products">Что строим</a>
-    <a class="lnk" href="#case">Живой пример</a>
-    <a class="lnk" href="#how">Как это идёт</a>
-    <a class="lnk" href="#plans">Цены</a>
-    <a class="btn pri" href="#lead">Обсудить задачу</a>
-  </div>
-</header>
-
-<section class="hero" id="top">
-  <div class="spot" id="spot"></div>
-  <div class="wrap">
-    <div class="rv">
-      <div class="mono">[ VERTUX DEVELOP - <b>ПРИЛОЖЕНИЯ ДЛЯ БИЗНЕСА</b> - СПБ/2026 ]</div>
-      <h1>Приложение под ваш бизнес <em>за 14 дней</em></h1>
-      <p class="sub">Воркспейсы вместо Excel и тетрадей: заявки, статусы, звонки, деньги вашей команды - в одном окне, собранном под ваш процесс. Не коробочная CRM и не полгода заказной разработки.</p>
-      <div class="cta-row">
-        <a class="btn pri" href="#lead">Обсудить задачу</a>
-        <a class="btn" href="#case">Потрогать живой пример</a>
+  <header class="topbar" id="topbar">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="Vertux Nexus, наверх">
+        <span class="brand-mark">V</span>
+        <span class="brand-copy"><strong>VERTUX NEXUS</strong><small>BUSINESS OS / 01</small></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Главная навигация">
+        <a href="#inside">Внутри Nexus</a>
+        <a href="#products">Сценарии</a>
+        <a href="#deployment">Размещение</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="nav-button" data-download>Скачать</button>
+        <a class="nav-button primary" href="https://vertux.online" target="_blank" rel="noopener noreferrer">Основной сайт</a>
       </div>
-      <div class="hero-stats">
-        <div class="hstat"><b><span class="cnt" data-n="14">0</span> дней</b><span>от созвона до запуска</span></div>
-        <div class="hstat"><b><span class="cnt" data-n="180">0</span> лидов</b><span>ведёт наш собственный воркспейс</span></div>
-        <div class="hstat"><b>0 р.</b><span>за размещение интерфейса</span></div>
-      </div>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Открыть меню">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
     </div>
-    <div class="rv" style="position:relative">
-      <svg class="badge-spin" viewBox="0 0 100 100"><defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text style="font-family:var(--mono);font-size:8.6px;letter-spacing:.22em;fill:#77748C"><textPath href="#circ">СОБРАНО СТУДИЕЙ VERTUX - ЗАЩИЩЕНО SHIELD - </textPath></text><circle cx="50" cy="50" r="3.5" fill="#7C5CFF"/></svg>
-      <div class="mock corner" id="mock">
-        <div class="bar"><i></i><i></i><i></i><span class="addr">workspace.vertux - ваш процесс</span></div>
-        <div class="body">
-          <div class="side">
-            <div class="it on"><i></i>Дашборд</div>
-            <div class="it"><i></i>Заявки</div>
-            <div class="it"><i></i>Звонки</div>
-            <div class="it"><i></i>Деньги</div>
-            <div class="it"><i></i>Команда</div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-grid"></div><div class="hero-glow" data-parallax=".08"></div>
+      <div class="page">
+        <div class="hero-copy reveal visible">
+          <div class="hero-kicker"><i></i> закрытый пилот / windows + pwa</div>
+          <h1><span class="line">Бизнес собирается</span><span class="line accent">в Nexus.</span></h1>
+          <p>Персональный workspace, AI-виджет и локальные системы компании. Один вход. Только нужные инструменты.</p>
+          <div class="hero-actions">
+            <a class="button primary magnetic" href="#inside"><span class="dot"></span> Посмотреть Nexus</a>
+            <button class="button ghost magnetic" data-download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v12m-5-5 5 5 5-5M5 21h14"/></svg>
+              Скачать тестовую версию
+            </button>
           </div>
-          <div class="main">
-            <div class="kpis">
-              <div class="kpi"><span>ЗАЯВКИ</span><b id="mkLeads">47</b></div>
-              <div class="kpi"><span>В РАБОТЕ</span><b id="mkWork">12</b></div>
-              <div class="kpi"><span>ОПЛАЧЕНО</span><b class="money" id="mkMoney">265 000 р.</b></div>
-            </div>
-            <div id="mrows"></div>
-          </div>
+          <div class="hero-meta">ПРОДУКТЫ VERTUX · ИЗОЛИРОВАННЫЕ ДАННЫЕ · УПРАВЛЯЕМОЕ ОБСЛУЖИВАНИЕ</div>
         </div>
-        <div class="foot"><i></i>SHIELD: ДАННЫЕ ПОД ЗАЩИТОЙ - РОЛИ - СВОЙ СЕРВЕР</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<div class="marq"><div class="in" id="marq"></div></div>
-
-<section class="sec" id="pain">
-  <div class="wrap">
-    <div class="ghost">01</div>
-    <div class="sec-head rv">
-      <h2>Знакомо?</h2>
-      <span class="mono">[ 001 / БОЛЬ ]</span>
-    </div>
-    <div class="pains">
-      <div class="pain corner rv">
-        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 5h18v14H3zM3 10h18M9 10v9"/></svg></div>
-        <h3>Всё в Excel и тетради</h3>
-        <p>Заявки в блокноте, клиенты в голове, статусы в переписке. Один человек в отпуске - и никто не знает, что происходит.</p>
-      </div>
-      <div class="pain corner rv">
-        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11a8 8 0 0 1-11.6 7.2L4 20l1.8-5.4A8 8 0 1 1 21 11z"/></svg></div>
-        <h3>Заявки тонут в чатах</h3>
-        <p>Клиент написал в WhatsApp, менеджер ответил из дома, заявку никто не записал. Сколько денег так утекло - не знает никто.</p>
-      </div>
-      <div class="pain corner rv">
-        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-        <h3>Отчёты руками по вечерам</h3>
-        <p>Сколько звонков, сколько продаж, кто сколько заработал - собирается вручную раз в месяц. Решения принимаются вслепую.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="products" style="padding-top:40px">
-  <div class="wrap">
-    <div class="ghost">02</div>
-    <div class="sec-head rv">
-      <h2>Что мы строим</h2>
-      <span class="mono">[ 002 / ПРОДУКТЫ ]</span>
-    </div>
-    <div class="prods">
-      <div class="prod corner rv">
-        <span class="idx">BLD/001</span>
-        <h3>Воркспейс - CRM под ваш процесс</h3>
-        <p>Одно окно для команды: заявки, воронка со стадиями, журнал звонков, деньги и доли, напоминания. Ставится как приложение на компьютер и телефон.</p>
-        <ul>
-          <li>Воронка и статусы - под ваш процесс, не «как в коробке»</li>
-          <li>Роли: владелец видит деньги, менеджер - только своё</li>
-          <li>Импорт вашей базы из Excel в один клик</li>
-        </ul>
-        <div class="price">ОТ 60 000 Р. / 10-14 ДНЕЙ</div>
-      </div>
-      <div class="prod corner rv">
-        <span class="idx">BLD/002</span>
-        <h3>Клиентский портал</h3>
-        <p>Личный кабинет для ваших клиентов: статус заказа, документы, оплаты, переписка. Каждый видит только своё - меньше звонков «ну что там у вас».</p>
-        <ul>
-          <li>Вход по приглашению, данные разделены на уровне базы</li>
-          <li>Статусы обновляются сами из вашего воркспейса</li>
-          <li>Ваш логотип и цвета</li>
-        </ul>
-        <div class="price">ОТ 90 000 Р. / 14-21 ДЕНЬ</div>
-      </div>
-      <div class="prod corner rv">
-        <span class="idx">BLD/003</span>
-        <h3>Telegram-бот под процесс</h3>
-        <p>Запись, заказы, уведомления, оплаты - там, где ваши клиенты уже сидят. Без установки приложений.</p>
-        <ul>
-          <li>Запись и заказы 24/7 без администратора</li>
-          <li>Уведомления команде о каждом событии</li>
-          <li>Связывается с воркспейсом и вашей базой</li>
-        </ul>
-        <div class="price">ОТ 30 000 Р. / 7-10 ДНЕЙ</div>
-      </div>
-      <div class="prod corner rv">
-        <span class="idx">BLD/004</span>
-        <h3>AI-ассистент с защитой Shield</h3>
-        <p>Нейросеть, которая отвечает вашим клиентам на сайте и в мессенджерах: консультирует, собирает заявки, передаёт горячих менеджеру.</p>
-        <ul>
-          <li>Отвечает по вашей базе знаний, а не выдумывает</li>
-          <li>Vertux Shield: боты и халявщики не сожгут ваш бюджет</li>
-          <li>Каждый диалог и заявка - в вашем воркспейсе</li>
-        </ul>
-        <div class="price">ОТ 40 000 Р. / 7-10 ДНЕЙ</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec case" id="case" style="background:var(--bg2);border-block:1px solid var(--hair)">
-  <div class="wrap">
-    <div class="ghost">03</div>
-    <div class="sec-head rv">
-      <h2>Живой пример: Vertux Workspace</h2>
-      <span class="mono">[ 003 / КЕЙС ]</span>
-    </div>
-    <div class="wrap2">
-      <div class="rv">
-        <p style="color:var(--mut);font-size:16px">Мы сами живём в приложении, которое построили по этой же схеме - им наша команда ведёт продажи каждый день. Это не макет для красоты, это рабочий инструмент.</p>
-        <ul class="facts">
-          <li><b>180 лидов</b> в воронке со стадиями и заметками</li>
-          <li><b>Журнал звонков</b> пишется сам, итоги двигают воронку</li>
-          <li><b>AI-тренер</b>: live-транскрипт, тренажёр и модуль разбора звонков</li>
-          <li><b>Деньги</b>: выручка, доли команды, прогноз по воронке</li>
-          <li><b>Импорт из Excel/2GIS</b> с умным слиянием без потерь</li>
-          <li><b>Роли и приглашения</b>: менеджер не видит финансы</li>
-        </ul>
-        <div class="honest">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FEBC2E" stroke-width="2" style="flex:0 0 auto;margin-top:2px"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg>
-          Это наш внутренний продукт - на созвоне покажем его вживую и соберём такой же под ваш процесс.
-        </div>
-        <div style="margin-top:26px"><a class="btn pri" href="#lead">Хочу такой же</a></div>
-      </div>
-      <div class="rv">
-        <div class="mock corner" id="mock2">
-          <div class="bar"><i></i><i></i><i></i><span class="addr">vertux workspace - продажи студии</span></div>
-          <div class="body">
-            <div class="side">
-              <div class="it"><i></i>Дашборд</div>
-              <div class="it on"><i></i>Проекты</div>
-              <div class="it"><i></i>Звонки</div>
-              <div class="it"><i></i>Тренер</div>
-              <div class="it"><i></i>Деньги</div>
-              <div class="it"><i></i>Импорт</div>
-            </div>
-            <div class="main">
-              <div class="kpis">
-                <div class="kpi"><span>ЛИДОВ</span><b>180</b></div>
-                <div class="kpi"><span>ДЕМОК</span><b id="mk2Demo">14</b></div>
-                <div class="kpi"><span>ЗВОНКОВ СЕГОДНЯ</span><b id="mk2Calls">23</b></div>
+        <div class="product-orbit" id="productOrbit" aria-label="Визуальная демонстрация клиентского кабинета Nexus">
+          <div class="orbit-ring" data-parallax=".03"></div><div class="orbit-ring r2" data-parallax="-.025"></div>
+          <div class="app-device" id="heroDevice">
+            <div class="device-frame">
+              <div class="device-top"><span class="traffic"><i></i><i></i><i></i></span><span class="device-url">nexus.vertux / protected workspace</span><span class="device-live"><i></i> HUB ONLINE</span></div>
+              <div class="device-body">
+                <aside class="device-side">
+                  <div class="side-logo"><i>V</i>NEXUS</div>
+                  <p class="side-caption">Компания</p>
+                  <div class="side-nav active"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Мои продукты</div>
+                  <div class="side-nav"><svg viewBox="0 0 24 24"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3"/></svg>Использование</div>
+                  <div class="side-nav"><svg viewBox="0 0 24 24"><path d="M4 5h16v12H8l-4 4z"/></svg>Поддержка</div>
+                  <p class="side-caption">Система</p>
+                  <div class="side-nav"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.6v-.2h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1z"/></svg>Настройки</div>
+                  <div class="user-tile"><span class="user-avatar">CC</span><span><b>CoverCity</b><small>OWNER ACCESS</small></span></div>
+                </aside>
+                <div class="device-main">
+                  <div class="app-head"><div><small>CLIENT SPACE / 001</small><h2>Добрый вечер, Степан</h2></div><div class="app-head-actions"><span class="app-icon-button"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></span><span class="app-icon-button"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span></div></div>
+                  <div class="company-banner"><div class="company-id"><span class="company-emblem">CC</span><span><strong>CoverCity</strong><small>2 ПРОДУКТА · ГИБРИДНЫЙ КОНТУР</small></span></div><span class="company-state"><i></i> ВСЁ РАБОТАЕТ</span></div>
+                  <div class="app-layout">
+                    <div class="app-block"><div class="block-head"><strong>Ваши продукты</strong><span>ОБНОВЛЕНО СЕЙЧАС</span></div><div class="product-list">
+                      <div class="product-row"><span class="product-glyph">WS</span><span><strong>CoverCity Workspace</strong><small>КЛИЕНТЫ · INBOX · ДОКУМЕНТЫ · 1С</small></span><b class="row-state">ACTIVE</b></div>
+                      <div class="product-row"><span class="product-glyph">AI</span><span><strong>CoverCity AI-виджет</strong><small>ДИАЛОГИ · ЗНАНИЯ · АНАЛИТИКА</small></span><b class="row-state">ACTIVE</b></div>
+                      <div class="product-row"><span class="product-glyph">LN</span><span><strong>Local Node</strong><small>WINDOWS BRIDGE · ПОСЛЕДНЯЯ СВЯЗЬ 1 МИН</small></span><b class="row-state">ONLINE</b></div>
+                    </div></div>
+                    <div class="app-block"><div class="block-head"><strong>AI usage</strong><span>ИЮЛЬ</span></div><div class="usage-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="usage-meta"><span>ПРОГНОЗ</span><b>В ПРЕДЕЛАХ</b></div></div>
+                  </div>
+                </div>
               </div>
-              <div id="mrows2"></div>
             </div>
           </div>
-          <div class="foot"><i></i>AI-ТРЕНЕР СЛУШАЕТ - СУФЛЁР ГОТОВ - SHIELD ВКЛ</div>
+          <div class="float-card one" data-parallax=".11"><span class="fc-icon">WS</span><span><strong>Workspace</strong><small>ваш рабочий процесс</small></span><i class="signal"></i></div>
+          <div class="float-card two" data-parallax=".08"><span class="fc-icon">AI</span><span><strong>AI-виджет</strong><small>диалоги и аналитика</small></span><i class="signal"></i></div>
+          <div class="float-card three" data-parallax=".06"><span class="fc-icon">LN</span><span><strong>Local Node</strong><small>локальная 1С на связи</small></span><i class="signal"></i></div>
+          <div class="float-card four" data-parallax=".09"><span class="fc-icon">UP</span><span><strong>Usage</strong><small>расход под контролем</small></span><i class="signal"></i></div>
         </div>
       </div>
+      <div class="hero-fade"></div>
+    </section>
+
+    <div class="signal-strip" aria-hidden="true"><div class="marquee">
+      <span><i></i>Workspace</span><span><i></i>AI Widget</span><span><i></i>Local Node</span><span><i></i>Managed Cloud</span><span><i></i>Usage Control</span><span><i></i>Support</span>
+      <span><i></i>Workspace</span><span><i></i>AI Widget</span><span><i></i>Local Node</span><span><i></i>Managed Cloud</span><span><i></i>Usage Control</span><span><i></i>Support</span>
+    </div></div>
+
+    <section class="section story" id="inside">
+      <div class="page">
+        <div class="section-intro reveal"><p class="eyebrow">ВНУТРИ NEXUS</p><h2>Не набор сервисов.<br>Ваше пространство.</h2><p>Nexus открывается по логину и показывает только продукты конкретной компании. Никакой лишней CRM поверх рабочего процесса.</p></div>
+        <div class="story-layout">
+          <div class="story-copy">
+            <article class="story-step active" data-scene="productsScene"><span class="step-index">[ 01 / PRODUCTS ]</span><h3>Один вход.<br>Разные продукты.</h3><p>Workspace, виджет и локальная интеграция живут отдельно, но собраны в одном кабинете компании.</p><div class="step-points"><span>Свои роли и сотрудники</span><span>Отдельные статусы и подписки</span><span>Изолированные рабочие данные</span></div></article>
+            <article class="story-step" data-scene="widgetScene"><span class="step-index">[ 02 / WIDGET ]</span><h3>Видно, как отвечает AI.</h3><p>История диалогов, вопросы без ответа, база знаний и реальный расход доступны владельцу продукта.</p><div class="step-points"><span>Редактирование фактов и цен</span><span>Аналитика обращений</span><span>Shield и аварийное отключение</span></div></article>
+            <article class="story-step" data-scene="hybridScene"><span class="step-index">[ 03 / HYBRID ]</span><h3>Локальные данные остаются локально.</h3><p>Облачный workspace связывается с файловой 1С через узкий Windows-мост без открытых входящих портов.</p><div class="step-points"><span>Подписанные задания</span><span>Журнал и отзыв доступа</span><span>Резервные копии на ПК компании</span></div></article>
+          </div>
+          <div class="story-stage-wrap">
+            <div class="story-stage">
+              <div class="stage-halo"></div>
+              <div class="stage-shell reveal">
+                <div class="stage-bar"><span class="traffic"><i></i><i></i><i></i></span><span class="stage-title">NEXUS / CLIENT VIEW</span><span class="stage-status"><i></i> SECURE</span></div>
+                <div class="scene active" id="productsScene"><span class="scene-label">МОИ ПРОДУКТЫ</span><h4>CoverCity</h4><div class="scene-grid">
+                  <div class="scene-product"><span>WORKSPACE / 01</span><b class="mini-state">ACTIVE</b><h5>CoverCity Workspace</h5><p>Клиенты, inbox, документы и локальная 1С.</p></div>
+                  <div class="scene-product"><span>AI-WIDGET / 02</span><b class="mini-state">ACTIVE</b><h5>AI-консультант</h5><p>Диалоги, знания, usage и качество ответов.</p></div>
+                  <div class="scene-product"><span>LOCAL NODE / 03</span><b class="mini-state">ONLINE</b><h5>Windows Bridge</h5><p>Задания к файловой базе внутри компании.</p></div>
+                  <div class="scene-product"><span>SERVICE / 04</span><b class="mini-state">READY</b><h5>Поддержка</h5><p>Обращения, уведомления и временный доступ.</p></div>
+                </div></div>
+                <div class="scene" id="widgetScene"><span class="scene-label">AI-WIDGET / LIVE VIEW</span><h4>Каждый ответ можно проверить</h4><div class="widget-scene">
+                  <div class="chat-window"><div class="chat-head"><span class="bot-mark">AI</span><span><strong>CoverCity Assistant</strong><small>ONLINE · SHIELD ACTIVE</small></span></div><div class="messages"><div class="bubble">Здравствуйте! Подскажу по товарам и условиям доставки.</div><div class="bubble user">Какие варианты есть для офиса?</div><div class="bubble">Нашёл 3 подходящих категории. Показать по бюджету или износостойкости?</div><div class="bubble typing"><i></i><i></i><i></i></div></div></div>
+                  <div class="analytics-window"><div class="analytic-head"><span>ОТВЕТЫ ЗА ПЕРИОД</span><b>72%</b></div><div class="donut"><span>72%</span></div><div class="answer-stats"><div><span>Решено ботом</span><b>72%</b></div><div><span>Передано менеджеру</span><b>21%</b></div><div><span>Нужно обновить знания</span><b>7%</b></div></div></div>
+                </div></div>
+                <div class="scene" id="hybridScene"><span class="scene-label">HYBRID / OUTBOUND BRIDGE</span><h4>Облако и локальный компьютер</h4><div class="hybrid-map"><div class="map-node hub"><strong>Nexus Hub</strong><small>AUTH · LICENSE · JOBS</small></div><div class="map-line"></div><i class="packet"></i><div class="map-node cloud"><strong>Cloud Workspace</strong><small>TEAM ACCESS · 24/7</small></div><div class="map-node local"><strong>Windows Node</strong><small>FILES · BACKUPS</small></div><span class="map-note">ТОЛЬКО ИСХОДЯЩЕЕ TLS-СОЕДИНЕНИЕ</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section showcase" id="products">
+      <div class="page">
+        <div class="showcase-head"><div class="section-intro reveal"><p class="eyebrow">СЦЕНАРИИ</p><h2>Nexus принимает форму вашего бизнеса.</h2></div><p class="showcase-note reveal">Не универсальная панель для всех. Каждый продукт собирается вокруг конкретного ежедневного процесса.</p></div>
+        <div class="worlds">
+          <article class="world workspace reveal"><div class="world-bg"></div><div class="world-copy"><span class="world-index">PRODUCT / 01</span><h3>Workspace</h3><p>Сделки, звонки, документы, деньги и команда в интерфейсе, который повторяет реальный процесс компании.</p><a class="world-link" href="https://vertux.online" target="_blank" rel="noopener noreferrer">Workspace под задачу <i>↗</i></a></div><div class="world-visual"><div class="workspace-stack"><div class="stack-card back"></div><div class="stack-card middle"></div><div class="stack-card front"><div class="stack-top"><b>Проекты</b><span>12 В РАБОТЕ</span></div><div class="stack-columns"><div class="stack-col"><span>НОВЫЕ</span><div class="task"><i></i></div><div class="task"><i></i></div></div><div class="stack-col"><span>В РАБОТЕ</span><div class="task"><i></i></div><div class="task"><i></i></div></div><div class="stack-col"><span>ГОТОВО</span><div class="task"><i></i></div></div></div></div></div></div></article>
+          <article class="world widget reveal"><div class="world-bg"></div><div class="world-copy"><span class="world-index">PRODUCT / 02</span><h3>Workspace + AI</h3><p>AI-виджет отвечает на сайте, а владелец видит диалоги, слабые места базы знаний и расход внутри Nexus.</p><a class="world-link" href="https://t.me/VertuxManager" target="_blank" rel="noopener noreferrer">Обсудить связку <i>↗</i></a></div><div class="world-visual"><div class="widget-orb"></div><div class="orbit-message one">Есть ли доставка?<small>ОТВЕТ НАЙДЕН · 0.8 С</small></div><div class="orbit-message two">Новая заявка<small>ПЕРЕДАНО МЕНЕДЖЕРУ</small></div><div class="orbit-message three">База знаний обновлена<small>VERSION 12 · PUBLISHED</small></div></div></article>
+          <article class="world hybrid reveal"><div class="world-bg"></div><div class="world-copy"><span class="world-index">PRODUCT / 03</span><h3>Hybrid</h3><p>Команда работает в облаке, а закрытые файлы, 1С и локальные скрипты остаются на компьютере компании.</p><a class="world-link" href="#deployment">Сравнить размещение <i>↓</i></a></div><div class="world-visual"><div class="bridge-visual"><div class="bridge-box"><i>NX</i><strong>Managed Cloud</strong><small>WORKSPACE · TEAM · API</small></div><div class="bridge-flow"></div><div class="bridge-box"><i>1C</i><strong>Local Node</strong><small>1С · FILES · BACKUPS</small></div></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="deployment" id="deployment">
+      <div class="page">
+        <div class="section-intro reveal"><p class="eyebrow">РАЗМЕЩЕНИЕ</p><h2>Работает там,<br>где нужно.</h2><p>Серверная и локальная части комбинируются под данные, нагрузку и внутренние системы компании.</p></div>
+        <div class="deployment-grid reveal">
+          <article class="deploy-option"><span class="deploy-number">01</span><span class="deploy-tag">LOCAL NODE</span><h3>На компьютере компании</h3><p>Закрытые операции выполняются локально. Nexus управляет доступом, лицензией, версиями и поддержкой.</p><div class="deploy-spec"><div><span>Вычисления</span><b>ПК клиента</b></div><div><span>Закрытые файлы</span><b>Остаются локально</b></div><div><span>Обслуживание</span><b>Ниже Cloud</b></div></div></article>
+          <article class="deploy-option recommended"><span class="deploy-number">02</span><span class="deploy-tag">MANAGED CLOUD</span><h3>В контуре Vertux</h3><p>Workspace доступен команде круглосуточно. Мониторинг, резервирование и обновления входят в обслуживание.</p><div class="deploy-spec"><div><span>Доступ</span><b>24/7 для команды</b></div><div><span>Изоляция</span><b>Отдельный контур</b></div><div><span>Локальная 1С</span><b>Через Bridge</b></div></div><span class="recommended-badge">ОПТИМАЛЬНО ДЛЯ КОМАНДЫ</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="final-grid"></div><div class="final-orb"></div>
+      <div class="page final-copy reveal"><p class="eyebrow" style="justify-content:center">VERTUX NEXUS</p><h2>Соберём ваш<br>Nexus.</h2><p>Workspace отдельно или вместе с AI-виджетом. Детали и контакт остаются на основном сайте Vertux.</p><div class="final-actions"><a class="button primary magnetic" href="https://vertux.online" target="_blank" rel="noopener noreferrer">Перейти на Vertux <span>↗</span></a><a class="button ghost magnetic" href="https://t.me/VertuxManager" target="_blank" rel="noopener noreferrer">Написать менеджеру</a></div><div class="final-note">VERTUX.ONLINE · @VERTUXMANAGER · ЗАКРЫТЫЙ ПИЛОТ 2026</div></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 VERTUX NEXUS</span>
+      <a class="vtx-credit" href="https://vertux.online" target="_blank" rel="noopener noreferrer" aria-label="Сайт сделан в студии Vertux"><span class="vtx-credit__mark" aria-hidden="true">V</span><span>Сделано в студии <b>Vertux</b></span></a>
+      <nav class="footer-links" aria-label="Ссылки в подвале"><a href="#inside">Продукт</a><a href="#deployment">Размещение</a><a href="mailto:vertux.studio@gmail.com">Почта</a></nav>
+    </div>
+  </footer>
+
+  <div class="modal" id="downloadModal" role="dialog" aria-modal="true" aria-labelledby="downloadTitle" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" aria-label="Закрыть">×</button>
+      <span class="modal-label">LOCAL PILOT / WINDOWS</span>
+      <h3 id="downloadTitle">Публичный установщик готовится</h3>
+      <p>Nexus уже работает в локальном пилоте. Отдельный клиентский установщик появится после проверки первых рабочих продуктов.</p>
+      <div class="modal-actions"><a class="button primary" href="https://t.me/VertuxManager" target="_blank" rel="noopener noreferrer">Узнать о пилоте</a><button class="button ghost" id="modalOkay">Понятно</button></div>
     </div>
   </div>
-</section>
 
-<section class="sec" id="vs">
-  <div class="wrap">
-    <div class="ghost">04</div>
-    <div class="sec-head rv">
-      <h2>Почему не коробочная CRM?</h2>
-      <span class="mono">[ 004 / СРАВНЕНИЕ ]</span>
-    </div>
-    <div class="cmp">
-      <div class="col rv">
-        <h3>Коробочная CRM</h3>
-        <span class="who">AMOCRM, БИТРИКС24 И ДР.</span>
-        <ul>
-          <li class="bad">Ваш процесс подгоняется под коробку, а не наоборот</li>
-          <li class="bad">Платите за 200 функций, пользуетесь пятью</li>
-          <li class="bad">Подписка за каждого сотрудника, каждый месяц, навсегда</li>
-          <li class="bad">Внедренец нужен отдельно и стоит как разработка</li>
-        </ul>
-      </div>
-      <div class="col rv">
-        <h3>Заказная разработка</h3>
-        <span class="who">КЛАССИЧЕСКАЯ СТУДИЯ</span>
-        <ul>
-          <li class="bad">От 300 000 р. и от 4 месяцев</li>
-          <li class="bad">ТЗ на 40 страниц до первого экрана</li>
-          <li class="bad">Правки после сдачи - по прайсу как новый проект</li>
-          <li class="good">Зато точно под ваш процесс</li>
-        </ul>
-      </div>
-      <div class="col win rv">
-        <h3>Vertux Develop</h3>
-        <span class="who">ЭТОТ ВАРИАНТ</span>
-        <ul>
-          <li class="good">Под ваш процесс - как заказная</li>
-          <li class="good">За 7-14 дней и от 30-60 тыс. - потому что 90% делает наш ИИ-конвейер</li>
-          <li class="good">Интерфейс размещается бесплатно; база и сервер считаются отдельно по нагрузке</li>
-          <li class="good">Сопровождение по желанию: правки и новые фичи за фикс в месяц</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+  <script>
+    (function(){
+      'use strict';
+      var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var topbar=document.getElementById('topbar');
+      var menu=document.getElementById('navLinks');
+      var toggle=document.getElementById('menuToggle');
+      var modal=document.getElementById('downloadModal');
+      var lastFocus=null;
 
-<section class="sec" id="how" style="padding-top:30px">
-  <div class="wrap">
-    <div class="ghost">05</div>
-    <div class="sec-head rv">
-      <h2>Как это идёт</h2>
-      <span class="mono">[ 005 / ПРОЦЕСС ]</span>
-    </div>
-    <div class="steps">
-      <div class="step corner rv">
-        <span class="d">ДЕНЬ 01</span>
-        <h3>Созвон 30 минут</h3>
-        <p>Разбираем ваш процесс: откуда заявки, кто что делает, что должно быть в одном окне. Бесплатно.</p>
-      </div>
-      <div class="step corner rv">
-        <span class="d">ДНИ 02-05</span>
-        <h3>Прототип на ваших данных</h3>
-        <p>Не картинки, а кликабельное приложение с вашей реальной базой. Смотрите, тыкаете, правим.</p>
-      </div>
-      <div class="step corner rv">
-        <span class="d">ДНИ 06-12</span>
-        <h3>Сборка и защита</h3>
-        <p>Роли, права, импорт, автоматизации. Данные закрываются на уровне базы - Vertux Shield.</p>
-      </div>
-      <div class="step corner rv">
-        <span class="d">ДНИ 13-14</span>
-        <h3>Запуск и обучение</h3>
-        <p>Ставим команде на компьютеры и телефоны, час обучения, передаём доступы. Дальше - сопровождение, если нужно.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      addEventListener('scroll',function(){topbar.classList.toggle('scrolled',scrollY>22);},{passive:true});
+      toggle.addEventListener('click',function(){var open=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
+      menu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');});});
 
-<section class="sec shield-band">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <h2>Ваши данные - только ваши</h2>
-      <span class="mono">[ 006 / VERTUX SHIELD ]</span>
-    </div>
-    <div class="shield-grid">
-      <div class="sh rv"><b>Права на уровне базы</b><span>В клиентских сборках финансы и служебные данные закрываем политиками базы, а не только скрываем кнопки.</span></div>
-      <div class="sh rv"><b>Вход по приглашениям</b><span>Ни одного «лишнего» аккаунта: регистрация только по одноразовому коду от владельца.</span></div>
-      <div class="sh rv"><b>Ключи не в браузере</b><span>Все ключи и интеграции живут на сервере. Из страницы их не вытащить.</span></div>
-      <div class="sh rv"><b>Отдельная база на клиента</b><span>Ваши данные не соседствуют с чужими: своя база, свой доступ, по запросу - выгрузка целиком.</span></div>
-    </div>
-  </div>
-</section>
+      function openModal(event){lastFocus=event.currentTarget;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';document.getElementById('modalClose').focus();}
+      function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastFocus)lastFocus.focus();}
+      document.querySelectorAll('[data-download]').forEach(function(button){button.addEventListener('click',openModal);});
+      document.getElementById('modalClose').addEventListener('click',closeModal);
+      document.getElementById('modalOkay').addEventListener('click',closeModal);
+      modal.addEventListener('click',function(event){if(event.target===modal)closeModal();});
+      addEventListener('keydown',function(event){if(event.key==='Escape'&&modal.classList.contains('open'))closeModal();});
 
-<section class="sec" id="plans">
-  <div class="wrap">
-    <div class="ghost">07</div>
-    <div class="sec-head rv">
-      <h2>Сколько это стоит</h2>
-      <span class="mono">[ 007 / ЦЕНЫ ]</span>
-    </div>
-    <div class="plans">
-      <div class="plan corner rv">
-        <h3>Telegram-бот</h3>
-        <div class="pr">от 30 000 р.</div>
-        <div class="per">7-10 дней</div>
-        <ul>
-          <li>Запись / заказы / уведомления</li>
-          <li>Оплата и подтверждения</li>
-          <li>Админка в Telegram</li>
-          <li>Месяц поддержки в подарок</li>
-        </ul>
-        <a class="btn" href="#lead" data-plan="Telegram-бот">Обсудить бота</a>
-      </div>
-      <div class="plan hit corner rv">
-        <span class="tag-hit">БЕРУТ ЧАЩЕ ВСЕГО</span>
-        <h3>Воркспейс под процесс</h3>
-        <div class="pr">от 60 000 р.</div>
-        <div class="per">10-14 дней - как наш собственный, под ваш процесс</div>
-        <ul>
-          <li>Воронка, статусы, заметки - ваши</li>
-          <li>Журнал звонков и напоминания</li>
-          <li>Деньги и доли команды (видит только владелец)</li>
-          <li>Импорт вашей базы из Excel</li>
-          <li>Роли и коды приглашений</li>
-          <li>Ставится как приложение (ПК и телефон)</li>
-        </ul>
-        <a class="btn pri" href="#lead" data-plan="Воркспейс">Хочу воркспейс</a>
-      </div>
-      <div class="plan corner rv">
-        <h3>Портал + интеграции</h3>
-        <div class="pr">от 90 000 р.</div>
-        <div class="per">14-21 день</div>
-        <ul>
-          <li>Личный кабинет ваших клиентов</li>
-          <li>Связка с воркспейсом и ботом</li>
-          <li>AI-ассистент с Shield - опционально</li>
-          <li>Интеграции: телефония, оплаты, 1С</li>
-        </ul>
-        <a class="btn" href="#lead" data-plan="Портал">Обсудить портал</a>
-      </div>
-    </div>
-    <p class="rv" style="text-align:center;color:var(--mut2);font-size:13px;margin-top:22px">Точная смета - после бесплатного созвона. Сопровождение (правки, новые фичи, присмотр за серверами) - от 10 000 р./мес, по желанию.</p>
-  </div>
-</section>
+      var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});},{threshold:.12});
+      document.querySelectorAll('.reveal:not(.visible)').forEach(function(item){observer.observe(item);});
 
-<section class="sec" id="faq" style="padding-top:30px">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <h2>Вопросы, которые задают все</h2>
-      <span class="mono">[ 008 / FAQ ]</span>
-    </div>
-    <div class="faq rv">
-      <details>
-        <summary>Чьи это данные и что будет, если мы расстанемся?</summary>
-        <div class="a">Данные ваши. База - отдельная, под вашим проектом, а репозиторий и полную выгрузку мы передаём по запросу. Интерфейс можно размещать бесплатно; база и сервер остаются у выбранного вами провайдера или на вашем VPS.</div>
-      </details>
-      <details>
-        <summary>Чем это отличается от amoCRM за 500 р. в месяц?</summary>
-        <div class="a">Коробка даёт чужой процесс, и вы платите за каждого сотрудника вечно. Мы собираем ваше приложение под ваш процесс: в нём нет лишнего, оно ваше насовсем, и абонентка не растёт с командой. На дистанции двух лет это дешевле, а работать в нём - проще, потому что там только то, что нужно вам.</div>
-      </details>
-      <details>
-        <summary>Почему так быстро и недорого? В чём подвох?</summary>
-        <div class="a">Мы используем готовые проверенные модули, автоматизацию и ИИ для черновой работы, а архитектуру, безопасность и финальную проверку делает команда. Поэтому не начинаем каждый проект с пустого файла и не растягиваем сборку на месяцы.</div>
-      </details>
-      <details>
-        <summary>А если нам понадобятся правки через месяц?</summary>
-        <div class="a">Два пути: сопровождение от 10 000 р./мес (правки, новые фичи, присмотр) или разовые доработки по мини-смете. Мелочи в первый месяц после запуска правим бесплатно.</div>
-      </details>
-      <details>
-        <summary>Насколько это безопасно?</summary>
-        <div class="a">Права проверяются на уровне базы данных, а не кнопок: менеджер не увидит финансы, даже если очень постарается. Вход только по приглашениям, ключи и интеграции живут на сервере, у каждого клиента - отдельная база. Это наша система Vertux Shield, мы применяем её в каждом проекте.</div>
-      </details>
-    </div>
-  </div>
-</section>
+      var scenes=document.querySelectorAll('.scene');
+      var storySteps=document.querySelectorAll('.story-step');
+      var storyObserver=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){storySteps.forEach(function(step){step.classList.remove('active');});scenes.forEach(function(scene){scene.classList.remove('active');});entry.target.classList.add('active');var target=document.getElementById(entry.target.getAttribute('data-scene'));if(target)target.classList.add('active');}});},{rootMargin:'-32% 0px -45% 0px',threshold:0});
+      storySteps.forEach(function(step){storyObserver.observe(step);});
 
-<section class="sec cta-final" id="lead">
-  <div class="wrap" style="text-align:center">
-    <div class="mono rv">[ 009 / ЗАЯВКА ]</div>
-    <h2 class="rv" style="margin-top:14px">Расскажите, как устроен ваш процесс</h2>
-    <p class="rv" style="color:var(--mut);max-width:520px;margin:14px auto 0">30-минутный созвон, бесплатно. Покажем наш воркспейс вживую и скажем честно, что вам собирать - а что не нужно.</p>
-    <form class="form-card corner rv" id="leadForm">
-      <div class="fgrid">
-        <label class="hp" aria-hidden="true">Не заполняйте это поле<input name="website" tabindex="-1" autocomplete="off"></label>
-        <input name="name" placeholder="Как вас зовут" required maxlength="80">
-        <input name="contact" placeholder="Telegram или телефон" required maxlength="80">
-        <select name="service">
-          <option>Воркспейс / CRM под процесс</option>
-          <option>Telegram-бот</option>
-          <option>Клиентский портал</option>
-          <option>AI-ассистент</option>
-          <option>Пока не знаю - подскажите</option>
-        </select>
-        <textarea name="brief" placeholder="Пара слов о бизнесе: чем занимаетесь, где сейчас ведёте заявки" maxlength="1000"></textarea>
-      </div>
-      <button class="btn pri" type="submit" id="leadBtn">Отправить - ответим сегодня</button>
-      <div class="fmsg" id="leadMsg"></div>
-    </form>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="made">Сделано в студии <a href="https://vertux.online" target="_blank" rel="noopener">Vertux</a> - сайты, приложения и AI для бизнеса</div>
-    <div class="mono">© 2026 VERTUX DEVELOP - <b>SHIELD INSIDE</b></div>
-    <div class="made">Разработано командой <a href="https://vertux.online" target="_blank" rel="noopener">Vertux</a></div>
-  </div>
-</footer>
-
-<script>
-(function(){
-'use strict';
-/* reveal */
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12});
-document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%4*70)+'ms';io.observe(el);});
-
-/* counter-up */
-var cio=new IntersectionObserver(function(es){es.forEach(function(e){
-  if(!e.isIntersecting)return;cio.unobserve(e.target);
-  var el=e.target,n=+el.dataset.n,t0=performance.now();
-  (function tick(t){var k=Math.min((t-t0)/1200,1);el.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(tick);})(t0);
-});},{threshold:.5});
-document.querySelectorAll('.cnt').forEach(function(el){cio.observe(el);});
-
-/* spotlight */
-var spot=document.getElementById('spot'),hero=document.querySelector('.hero');
-if(hero&&spot)hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();spot.style.left=(e.clientX-r.left)+'px';spot.style.top=(e.clientY-r.top)+'px';});
-
-/* marquee */
-var items='ВОРКСПЕЙСЫ - CRM ПОД ПРОЦЕСС - КЛИЕНТСКИЕ ПОРТАЛЫ - TELEGRAM-БОТЫ - AI-АССИСТЕНТЫ - АВТОМАТИЗАЦИИ - <b>VERTUX SHIELD</b> - ';
-document.getElementById('marq').innerHTML='<span>'+items.repeat(4)+'</span><span>'+items.repeat(4)+'</span>';
-
-/* живой мокап: строки двигаются по стадиям */
-var STAGES=[['новая','s0'],['связались','s1'],['демо у клиента','s2'],['оплачено','s3']];
-function mockRows(boxId,names,opts){
-  var box=document.getElementById(boxId);if(!box)return;
-  var rows=names.map(function(n,i){
-    var st=i%3===0?1:0;
-    var el=document.createElement('div');el.className='mrow';
-    el.innerHTML='<span class="av">'+n[0]+'</span><span class="nm">'+n+'</span><span class="st"></span>';
-    box.appendChild(el);
-    return {el:el,st:st};
-  });
-  function paint(r){var s=STAGES[r.st];var t=r.el.querySelector('.st');t.textContent=s[0];t.className='st '+s[1];}
-  rows.forEach(paint);
-  var money=265000,leads=47,work=12;
-  setInterval(function(){
-    var cand=rows.filter(function(r){return r.st<3;});
-    if(!cand.length){rows.forEach(function(r){r.st=0;paint(r);});return;}
-    var r=cand[Math.floor(Math.random()*cand.length)];
-    r.st++;paint(r);
-    r.el.classList.remove('flash');void r.el.offsetWidth;r.el.classList.add('flash');
-    if(opts&&opts.kpi){
-      if(r.st===3){money+=[38,45,60,75][Math.floor(Math.random()*4)]*1000;
-        document.getElementById('mkMoney').textContent=money.toLocaleString('ru-RU')+' р.';}
-      if(r.st===1){work++;document.getElementById('mkWork').textContent=work;}
-      leads+=Math.random()<.3?1:0;document.getElementById('mkLeads').textContent=leads;
-    }
-    if(opts&&opts.kpi2&&r.st===2){var d=document.getElementById('mk2Demo');d.textContent=+d.textContent+1;}
-  },2100);
-}
-mockRows('mrows',['Автосервис Дельта','Салон «Локон»','СтройГарант','Химчистка №1','Кафе «Утро»'],{kpi:true});
-mockRows('mrows2',['Балтремонт','Ковёр-Мастер','Барбершоп Один','Клининг Плюс','Лазер-Про'],{kpi2:true});
-setInterval(function(){var c=document.getElementById('mk2Calls');if(c&&Math.random()<.5)c.textContent=+c.textContent+1;},4000);
-
-/* выбор тарифа проставляет select */
-document.querySelectorAll('[data-plan]').forEach(function(a){a.addEventListener('click',function(){
-  var sel=document.querySelector('#leadForm select');
-  var map={'Telegram-бот':'Telegram-бот','Воркспейс':'Воркспейс / CRM под процесс','Портал':'Клиентский портал'};
-  if(sel&&map[a.dataset.plan])sel.value=map[a.dataset.plan];
-});});
-
-/* форма -> вебхук (заявка падает в Telegram студии) */
-var form=document.getElementById('leadForm');
-form.addEventListener('submit',function(e){
-  e.preventDefault();
-  var btn=document.getElementById('leadBtn'),msg=document.getElementById('leadMsg');
-  var d=new FormData(form);
-  if(d.get('website'))return;
-  var last=Number(localStorage.getItem('vertuxLeadSentAt')||0);
-  if(Date.now()-last<15000){msg.className='fmsg err';msg.textContent='Заявка уже отправляется. Подождите несколько секунд.';return;}
-  btn.disabled=true;btn.textContent='Отправляю…';msg.className='fmsg';msg.textContent='';
-  var payload=new URLSearchParams({
-    name:d.get('name'),contact:d.get('contact'),service:d.get('service'),
-    brief:d.get('brief'),url:'vertux-develop'
-  });
-  fetch('https://zxcqweksn8n.duckdns.org/webhook/vertux-lead',{
-    method:'POST',mode:'no-cors',body:payload
-  }).then(function(){
-    msg.className='fmsg ok';msg.textContent='Заявка у нас. Ответим сегодня же.';
-    localStorage.setItem('vertuxLeadSentAt',String(Date.now()));
-    btn.textContent='Отправлено';form.reset();
-  }).catch(function(){
-    msg.className='fmsg err';msg.innerHTML='Не отправилось - напишите нам напрямую: <a href="https://vertux.online" style="text-decoration:underline">vertux.online</a>';
-    btn.disabled=false;btn.textContent='Попробовать ещё раз';
-  });
-});
-})();
-</script>
+      if(!reduced){
+        var hero=document.getElementById('productOrbit');
+        var device=document.getElementById('heroDevice');
+        hero.addEventListener('pointermove',function(event){var rect=hero.getBoundingClientRect();var x=(event.clientX-rect.left)/rect.width-.5;var y=(event.clientY-rect.top)/rect.height-.5;device.style.setProperty('--tilt-x',(x*3.5)+'deg');device.style.transform='translateX(-50%) rotateX('+(5-y*2.5)+'deg) rotateY('+(x*3.5)+'deg)';});
+        hero.addEventListener('pointerleave',function(){device.style.transform='translateX(-50%) rotateX(5deg) rotateY(0deg)';});
+        addEventListener('pointermove',function(event){document.documentElement.style.setProperty('--mx',event.clientX+'px');document.documentElement.style.setProperty('--my',event.clientY+'px');},{passive:true});
+        document.querySelectorAll('.magnetic').forEach(function(button){button.addEventListener('pointermove',function(event){var rect=button.getBoundingClientRect();button.style.transform='translate('+((event.clientX-rect.left-rect.width/2)*.08)+'px,'+((event.clientY-rect.top-rect.height/2)*.12)+'px)';});button.addEventListener('pointerleave',function(){button.style.transform='';});});
+        var ticking=false;
+        addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){var y=scrollY;document.querySelectorAll('[data-parallax]').forEach(function(item){var speed=parseFloat(item.getAttribute('data-parallax'))||0;item.style.translate='0 '+(y*speed)+'px';});ticking=false;});ticking=true;}},{passive:true});
+      }
+    })();
+  </script>
 </body>
 </html>
