@@ -737,11 +737,13 @@ form.addEventListener('submit',function(e){
   var last=Number(localStorage.getItem('vertuxLeadSentAt')||0);
   if(Date.now()-last<15000){msg.className='fmsg err';msg.textContent='Заявка уже отправляется. Подождите несколько секунд.';return;}
   btn.disabled=true;btn.textContent='Отправляю…';msg.className='fmsg';msg.textContent='';
+  var payload=new URLSearchParams({
+    name:d.get('name'),contact:d.get('contact'),service:d.get('service'),
+    brief:d.get('brief'),url:'vertux-develop'
+  });
   fetch('https://zxcqweksn8n.duckdns.org/webhook/vertux-lead',{
-    method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name:d.get('name'),contact:d.get('contact'),service:d.get('service'),brief:d.get('brief'),url:'vertux-develop'})
-  }).then(function(r){
-    if(!r.ok)throw 0;
+    method:'POST',mode:'no-cors',body:payload
+  }).then(function(){
     msg.className='fmsg ok';msg.textContent='Заявка у нас. Ответим сегодня же.';
     localStorage.setItem('vertuxLeadSentAt',String(Date.now()));
     btn.textContent='Отправлено';form.reset();
